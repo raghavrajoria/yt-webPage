@@ -749,7 +749,7 @@ const GuestAppearance = () => {
           <div
             id="multiItemCarousel"
             className="carousel slide"
-            style={{ width: "100%", overflow: "hidden" }}
+            style={{ overflow: "hidden" }}
             data-bs-ride="false"
           >
             <div className="carousel-inner">

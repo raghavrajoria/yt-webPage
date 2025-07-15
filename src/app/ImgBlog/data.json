@@ -1,0 +1,166 @@
+
+{
+  "blogs": [
+    {
+      "id": 1,
+      "slug":"roman-holiday",
+      "title": "Roman Holiday 🇮🇹 | Colosseum, Pizza & Timeless Streets!",
+      "date": "Sep24, 2025",
+      "author": "Ishwar",
+      "views" :"12M views",
+      "excerpt": "Rome, the Eternal City, is a perfect blend of history, culture, and mouthwatering cuisine. Start your journey at the iconic Colosseum, where ancient gladiators once battled. Wander through cobblestone streets lined with charming cafes and stunning piazzas that feel like stepping back in time. Don’t miss tasting authentic Roman pizza—thin, crispy, and loaded with fresh ingredients. From the grandeur of the Vatican to the lively atmosphere of Trastevere, Rome offers timeless experiences that stay with you forever. Whether you’re a history buff or a foodie, this city’s magic is impossible to resist!",
+      "image":"colosseumImg.jpg",
+       "content": [
+      {
+        "type": "text",
+        "value": "Rome, the Eternal City, is a perfect blend of history, culture, and mouthwatering cuisine. Start your journey at the iconic Colosseum, where ancient gladiators once battled. Wander through cobblestone streets lined with charming cafes and stunning piazzas that feel like stepping back in time. Don’t miss tasting authentic Roman pizza—thin, crispy, and loaded with fresh ingredients. From the grandeur of the Vatican to the lively atmosphere of Trastevere, Rome offers timeless experiences that stay with you forever. Whether you’re a history buff or a foodie, this city’s magic is impossible to resist!"
+      },
+      {
+        "type": "heading",
+        "value": "Iconic view Point"
+      },
+      {
+        "type": "text",
+        "value": "One of the most famous spots in Nusa Penida is Kelingking Beach, often called the “T-Rex” cliff because of its unique shape. The view from the top is absolutely unreal—towering limestone cliffs plunge into a pristine, crescent-shaped beach below."
+      },
+      {
+        "type": "image",
+        "value": "colosseumImg.jpg"
+      },{
+        "type":"text",
+        "value":"Right next door, Broken Beach and Angel’s Billabong continue to showcase the raw beauty of the island. Angel’s Billabong is a natural infinity pool carved into the rocks, while Broken Beach features a collapsed sea cave forming a spectacular archway over clear blue water."
+      },
+      {
+        "type":"heading",
+        "value":"Island Adventures & Serenity"
+      },{
+        "type":"text",
+        "value":"Beyond the cliffs, Nusa Penida offers equally stunning underwater worlds. Snorkeling and diving trips reveal vibrant coral reefs, colorful fish, and even graceful manta rays. Many visitors take day trips to nearby islands like Nusa Lembongan and Nusa Ceningan, but staying overnight on Penida lets you truly soak in the serenity."
+      },
+      {
+        "type":"image",
+        "value":"IslandView.jpg"
+      },
+      {
+        "type":"text",
+        "value":"Whether you're trekking down to secluded beaches, capturing epic drone shots, or just relaxing with a coconut in hand, Nusa Penida is a perfect blend of adrenaline and tranquility. It’s one of those places that feels untouched, wild, and completely unforgettable."
+      }
+    ]
+     
+  },
+
+    
+    {
+      "id": 2,
+      "slug":"tulum-vibes",
+      "title": "Tulum Vibes 🌴 | Beach Ruins, Cenotes & Jungle Cafes!",
+      "date": "Sep24, 2025",
+      "author": "Ishwar",
+      "views" :"12M views",
+      "excerpt": "Tulum is a tropical paradise on Mexico’s Caribbean coast that perfectly blends history and nature. Explore the stunning ancient Mayan ruins perched above the turquoise sea—an unforgettable sight. Dive into crystal-clear cenotes, natural freshwater sinkholes that offer a refreshing escape from the heat. After a day of adventure, relax at cozy jungle cafes serving delicious local food and refreshing drinks. With its laid-back vibe, beautiful beaches, and rich culture, Tulum is the ultimate destination for travelers seeking both relaxation and exploration.",
+      "image":"TulumBeachImg.jpg",
+          "content": [
+      {
+        "type": "text",
+        "value": "Rome, the Eternal City, is a perfect blend of history, culture, and mouthwatering cuisine. Start your journey at the iconic Colosseum, where ancient gladiators once battled. Wander through cobblestone streets lined with charming cafes and stunning piazzas that feel like stepping back in time. Don’t miss tasting authentic Roman pizza—thin, crispy, and loaded with fresh ingredients. From the grandeur of the Vatican to the lively atmosphere of Trastevere, Rome offers timeless experiences that stay with you forever. Whether you’re a history buff or a foodie, this city’s magic is impossible to resist!"
+      },
+      {
+        "type": "heading",
+        "value": "Iconic view Point"
+      },
+      {
+        "type": "text",
+        "value": "One of the most famous spots in Nusa Penida is Kelingking Beach, often called the “T-Rex” cliff because of its unique shape. The view from the top is absolutely unreal—towering limestone cliffs plunge into a pristine, crescent-shaped beach below."
+      },
+      {
+        "type": "image",
+        "value": "colosseumImg.jpg"
+      },{
+        "type":"text",
+        "value":"Right next door, Broken Beach and Angel’s Billabong continue to showcase the raw beauty of the island. Angel’s Billabong is a natural infinity pool carved into the rocks, while Broken Beach features a collapsed sea cave forming a spectacular archway over clear blue water."
+      },
+      {
+        "type":"heading",
+        "value":"Island Adventures & Serenity"
+      },{
+        "type":"text",
+        "value":"Beyond the cliffs, Nusa Penida offers equally stunning underwater worlds. Snorkeling and diving trips reveal vibrant coral reefs, colorful fish, and even graceful manta rays. Many visitors take day trips to nearby islands like Nusa Lembongan and Nusa Ceningan, but staying overnight on Penida lets you truly soak in the serenity."
+      },
+      {
+        "type":"image",
+        "value":"IslandView.jpg"
+      },
+      {
+        "type":"text",
+        "value":"Whether you're trekking down to secluded beaches, capturing epic drone shots, or just relaxing with a coconut in hand, Nusa Penida is a perfect blend of adrenaline and tranquility. It’s one of those places that feels untouched, wild, and completely unforgettable."
+      }
+    ]
+    },
+    {
+      "id": 3,
+      "slug":"nusa-penida",
+      "title": "INSANE VIEWS in NUSA PENIDA 😱 | Island Hopping & Cliffside Wonders!",
+      "date": "Sep25, 2025",
+      "author": "Ishwar",
+      "views" :"12M views",
+      "excerpt": "Nusa Penida, a breathtaking island just off the coast of Bali, Indonesia, is a paradise for adventurers and nature lovers alike. With its rugged cliffs, hidden beaches, and turquoise waters, the island has quickly become one of Southeast Asia’s most talked-about travel gems.",
+      
+      "image":"NusaPenida.jpg"
+    },
+    {
+      "id": 4,
+      "slug":"mount-fuji",
+      "title": "Chasing Mount Fuji! 🚄 Scenic Trains, Hot Springs & Fuji Views",
+      "date": "Sep26, 2025",
+      "author": "Ishwar",
+      "views" :"12M views",
+      "excerpt": "Mount Fuji is more than just Japan’s tallest peak—it's a symbol of serenity and natural beauty. Whether you're gazing at it from a bullet train window or soaking in an onsen (hot spring) in Hakone, the views are nothing short of breathtaking. Visit picturesque lakes like Kawaguchiko or take a hike for a closer look at the majestic volcano. In every season—whether snow-capped or framed by cherry blossoms—Mount Fuji offers the kind of beauty that feels straight out of a dream.",
+     
+      "image":"MountFujiImg.jpg"
+    },
+    {
+      "id": 5,
+      "slug":"dubai-deset",
+      "title": " Into the DUBAI Desert! 🐪 Dune Bashing, Camels & Sunset Magic",
+      "date": "Sep27, 2025",
+      "author": "Ishwar",
+      "views" :"12M views",
+      "excerpt": "Just outside the city lights of Dubai lies a golden expanse of desert that feels like another world. Hop into a 4x4 for an adrenaline-pumping dune bashing ride, glide across the sands on a camel, or try your hand at sandboarding. As the sun sets, the desert glows with fiery colors—perfect for photos and unforgettable moments. Top off the day with a traditional Bedouin-style camp, complete with music, dance, and a delicious BBQ under the stars. Dubai’s desert is where adventure meets tranquility.",
+      
+      "image":"DubaiDesertImg.jpg"
+    },
+    {
+      "id": 6,
+      "slug":"royal-jaipur",
+      "title": "ROYAL JAIPUR in Full Color 👑 | Forts, Food & the Pink City Experience",
+      "date": "Sep28, 2025",
+      "author": "Ishwar",
+      "views" :"12M views",
+      "excerpt": "Jaipur, the heart of Rajasthan, is a vibrant blend of royalty and culture. Known as the Pink City, it welcomes you with grand palaces, bustling bazaars, and timeless architecture. Explore the majestic Amber Fort, stroll through the iconic Hawa Mahal, and shop for handcrafted treasures in colorful local markets. The flavors of Rajasthani cuisine—from spicy curries to sweet ghevar—add a delicious layer to the journey. Whether you’re chasing heritage or hunting Instagram-worthy spots, Jaipur makes every moment feel royal.",
+     
+      "image":"RoyalJaipur.jpg"
+    },
+    {
+       "id": 7,
+       "slug":"bali-lake",
+      "title": "BALI Like Never Before! Hidden Gems, Rice Terraces & Beach Vibes",
+      "date": "Sep28, 2025",
+      "author": "Ishwar",
+      "views" :"12M views",
+      "excerpt": "Bali is more than just a destination—it’s a feeling. From the serene rice terraces of Ubud to the vibrant surf beaches of Canggu, the island offers something for every kind of traveler. Discover hidden waterfalls, ancient temples, and peaceful jungle retreats. Start your mornings with local coffee and end your days with breathtaking sunsets over the ocean. Whether you're into adventure, spirituality, or laid-back beach vibes, Bali wraps you in its magic and leaves you wanting more.",
+      
+      "image":"BaliImg.jpg"
+    },
+    {
+       "id": 8,
+       "slug":"newYork-Engery",
+      "title": "New York Energy | Skyscrapers, Broadway & Central Park!",
+      "date": "Sep28, 2025",
+      "author": "Ishwar",
+      "views" :"12M views",
+      "excerpt": "New York City pulses with an energy like no other place. Marvel at towering skyscrapers, catch a Broadway show, and find tranquility in Central Park's expansive greenery. The city's diverse neighborhoods offer endless culinary and cultural experiences...",
+      
+      "image":"colosseumImg.jpg"
+    }
+  ]
+}
