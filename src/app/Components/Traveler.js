@@ -86,18 +86,27 @@ const Traveler = () => {
 
   return (
     <>
-      {activePage !== "main" && <TravelNav />}
+      {/* Show TravelNav on all pages except main */}
+      {activePage !== "main" && <TravelNav setActivePage={setActivePage} />}
 
+      {/* Main landing page */}
       {activePage === "main" && <MainPage setActivePage={setActivePage} />}
+
+      {/* Blogs list */}
       {activePage === "blogs" && (
         <Blogs
           setActivePage={setActivePage}
           setSelectedBlog={setSelectedBlog}
         />
       )}
+
+      {/* Single blog view */}
       {activePage === "view" && selectedBlog && (
         <ViewBlog blog={selectedBlog} goBack={() => setActivePage("blogs")} />
       )}
+
+      {/* Videos page */}
+      {activePage === "videos" && <TravelVid />}
 
       <TravelFooter />
     </>
