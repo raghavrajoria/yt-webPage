@@ -1,4 +1,10 @@
-import { Geist, Geist_Mono, Inter, Montserrat } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Inter,
+  Montserrat,
+  Playfair_Display,
+} from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
 <link
   rel="stylesheet"
@@ -25,6 +31,11 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
 });
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -35,7 +46,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${montserrat.variable}`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${montserrat.variable}  ${playfair.variable}`}
       >
         {children}
       </body>

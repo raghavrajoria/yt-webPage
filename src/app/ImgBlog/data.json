@@ -161,6 +161,28 @@
       "excerpt": "New York City pulses with an energy like no other place. Marvel at towering skyscrapers, catch a Broadway show, and find tranquility in Central Park's expansive greenery. The city's diverse neighborhoods offer endless culinary and cultural experiences...",
       
       "image":"colosseumImg.jpg"
+    },
+    {
+       "id": 9,
+       "slug":"newYork-Engery",
+      "title": "New York Energy | Skyscrapers, Broadway & Central Park!",
+      "date": "Sep28, 2025",
+      "author": "Ishwar",
+      "views" :"12M views",
+      "excerpt": "New York City pulses with an energy like no other place. Marvel at towering skyscrapers, catch a Broadway show, and find tranquility in Central Park's expansive greenery. The city's diverse neighborhoods offer endless culinary and cultural experiences...",
+      
+      "image":"colosseumImg.jpg"
+    },
+    {
+       "id": 10,
+       "slug":"newYork-Engery",
+      "title": "New York Energy | Skyscrapers, Broadway & Central Park!",
+      "date": "Sep28, 2025",
+      "author": "Ishwar",
+      "views" :"12M views",
+      "excerpt": "New York City pulses with an energy like no other place. Marvel at towering skyscrapers, catch a Broadway show, and find tranquility in Central Park's expansive greenery. The city's diverse neighborhoods offer endless culinary and cultural experiences...",
+      
+      "image":"colosseumImg.jpg"
     }
   ]
 }
