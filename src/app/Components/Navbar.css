@@ -102,3 +102,6 @@
   background-color: #f8f9fa;
 }
 
+.nav-link-underline.active-underline::after {
+  transform: scaleX(1);
+}
