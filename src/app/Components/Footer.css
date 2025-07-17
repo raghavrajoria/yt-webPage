@@ -1,0 +1,12 @@
+.footer a,
+.footer a:visited {
+  color: #000 !important;
+  text-decoration: none !important;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.footer a:hover {
+  color: #007bff !important;
+  text-decoration: underline !important;
+}
