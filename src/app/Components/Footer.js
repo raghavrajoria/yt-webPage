@@ -102,7 +102,7 @@ const Footer = () => {
                   </h6>
                   <div className="mb-1">
                     <a
-                      href="/generate-your-perfect-sitemap-in-seconds-with-our-seobix-tool"
+                      href="/ai-content-generator"
                       className="text-decoration-none text-dark"
                     >
                       Content Generator
@@ -110,7 +110,7 @@ const Footer = () => {
                   </div>
                   <div className="mb-1">
                     <a
-                      href="/enerate-your-perfect-sitemap-in-seconds-with-our-seobix-tool"
+                      href="/quality-content-checker"
                       className="text-decoration-none text-dark"
                     >
                       Quality Content Checker
@@ -118,7 +118,7 @@ const Footer = () => {
                   </div>
                   <div className="mb-1">
                     <a
-                      href="/generate-your-perfect-sitemap-in-seconds-with-our-seobix-tool"
+                      href="/content-humanizer"
                       className="text-decoration-none text-dark"
                     >
                       Humanizer
@@ -133,7 +133,7 @@ const Footer = () => {
                   </h6>
                   <div className="mb-1">
                     <a
-                      href="/best-keyword-research-tool"
+                      href="/trending-now-on-google"
                       className="text-decoration-none text-dark"
                     >
                       Backlink Generator
@@ -141,7 +141,7 @@ const Footer = () => {
                   </div>
                   <div className="mb-1">
                     <a
-                      href="/construct-your-seo-success-with-keyword-builder"
+                      href="/boost-google-ranking-with-keyword-interest"
                       className="text-decoration-none text-dark"
                     >
                       Backlink Checker
@@ -149,7 +149,7 @@ const Footer = () => {
                   </div>
                   <div className="mb-1">
                     <a
-                      href="/construct-your-seo-success-with-keyword-builder"
+                      href="/link-building-tool"
                       className="text-decoration-none text-dark"
                     >
                       Link Building Tool
@@ -157,7 +157,7 @@ const Footer = () => {
                   </div>
                   <div className="mb-1">
                     <a
-                      href="/construct-your-seo-success-with-keyword-builder"
+                      href="/check-top-linking-domain"
                       className="text-decoration-none text-dark"
                     >
                       Top Pages
@@ -171,17 +171,26 @@ const Footer = () => {
                     <strong>Keyword Research</strong>
                   </h6>
                   <div className="mb-1">
-                    <a href="/" className="text-decoration-none text-dark">
+                    <a
+                      href="/best-keyword-research-tool"
+                      className="text-decoration-none text-dark"
+                    >
                       Keyword Magic Tool
                     </a>
                   </div>
                   <div className="mb-1">
-                    <a href="/" className="text-decoration-none text-dark">
+                    <a
+                      href="/construct-your-seo-success-with-keyword-builder"
+                      className="text-decoration-none text-dark"
+                    >
                       Keyword Builder
                     </a>
                   </div>
                   <div className="mb-1">
-                    <a href="/" className="text-decoration-none text-dark">
+                    <a
+                      href="/domain-age-checker-track-website-journey"
+                      className="text-decoration-none text-dark"
+                    >
                       Position Tracker
                     </a>
                   </div>
@@ -193,19 +202,25 @@ const Footer = () => {
                     <strong>Bix Labs with Google</strong>
                   </h6>
                   <div className="mb-1">
-                    <a href="/" className="text-decoration-none text-dark">
+                    <a
+                      href="/best-url-inspection-tool"
+                      className="text-decoration-none text-dark"
+                    >
                       Google Analytics
                     </a>
                   </div>
                   <div className="mb-1">
-                    <a href="/" className="text-decoration-none text-dark">
+                    <a
+                      href="/generate-your-perfect-sitemap-in-seconds-with-our-seobix-tool"
+                      className="text-decoration-none text-dark"
+                    >
                       Google Search Console
                     </a>
                   </div>
                   <div className="mb-1">
                     <a
-                      href="/trending-now-on-google"
-                      className="text-decoration-none text-dark"
+                      href="/generate-your-perfect-sitemap-in-seconds-with-our-seobix-tool"
+                      className="/best-url-inspection-tool"
                     >
                       Google Trends
                     </a>
