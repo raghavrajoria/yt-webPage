@@ -8,8 +8,8 @@ export default function Home() {
     <div>
       {/* <Podcast /> */}
       {/* <Traveler /> */}
-      <LogoSlider />
-      {/* <Automative /> */}
+      {/* <LogoSlider /> */}
+      <Automative />
     </div>
   );
 }

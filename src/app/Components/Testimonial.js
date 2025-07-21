@@ -101,7 +101,8 @@ const Testimonials = () => {
                   Testimonials
                 </h>
               </div>
-              <div className="col-md-2 ">
+
+              <div className="col-md-2  ">
                 <button
                   onClick={() => scrollByCard(testinomialRef, -1)}
                   className="btn btn-outline-primary rounded-circle me-2"

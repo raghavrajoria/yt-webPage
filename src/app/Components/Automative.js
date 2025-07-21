@@ -106,6 +106,10 @@ export const AutomativeNav = () => {
 const MainPage = () => {
   const [latestNews, setLatestNews] = useState();
   const latestNewsRef = useRef(null);
+
+  const [browseCategory, setBrowseCategory] = useState();
+  const browseCategoryRef = useRef(null);
+
   useEffect(() => {
     setLatestNews([
       {
@@ -135,6 +139,29 @@ const MainPage = () => {
         title: "Avocado Bruschetta with Parma Ham and Poached",
         date: "Sep 24, 2025",
         author: "Ishwaar",
+      },
+    ]);
+
+    setBrowseCategory([
+      {
+        img: LsImg1.src,
+        category: "podcast",
+        guest: "Neil D'Silva",
+      },
+      {
+        img: LsImg1.src,
+        category: "podcast",
+        guest: "Glenn McGrath",
+      },
+      {
+        img: LsImg1.src,
+        category: "podcast",
+        guest: "Sri Rameshwar Swami",
+      },
+      {
+        img: LsImg1.src,
+        category: "podcast",
+        guest: "Neil D'Silva",
       },
     ]);
   }, []);
@@ -212,8 +239,9 @@ const MainPage = () => {
             <div className="col-md-1  d-flex d-md-block"></div>
             <div className="col-md-10">
               <div className="row mt-5">
-                <div className="col-2">
+                <div className="col-12 d-flex align-items-center justify-content-between flex-wrap gap-2">
                   <h3
+                    className="m-0"
                     style={{
                       color: "#252525",
                       fontSize: "2rem",
@@ -222,20 +250,31 @@ const MainPage = () => {
                   >
                     Latest News
                   </h3>
-                </div>
-                <div className="col-md-2 ">
-                  <button
-                    onClick={() => scrollByCard(latestNewsRef, -1)}
-                    className="btn btn-outline-primary rounded-circle me-2"
-                  >
-                    <FaArrowLeft />
-                  </button>
-                  <button
-                    onClick={() => scrollByCard(latestNewsRef, 1)}
-                    className="btn btn-outline-primary rounded-circle"
-                  >
-                    <FaArrowRight />
-                  </button>
+
+                  <div className="flex-grow-1 d-none d-md-block mx-3">
+                    <hr
+                      className="m-0"
+                      style={{ borderTop: "2px solid black" }}
+                    />
+                  </div>
+
+                  {/* Arrows */}
+                  <div className="d-flex">
+                    <button
+                      onClick={() => scrollByCard(latestNewsRef, -1)}
+                      className="btn rounded-circle me-2"
+                      style={{ borderColor: "black" }}
+                    >
+                      <FaArrowLeft />
+                    </button>
+                    <button
+                      onClick={() => scrollByCard(latestNewsRef, 1)}
+                      className="btn rounded-circle"
+                      style={{ borderColor: "black" }}
+                    >
+                      <FaArrowRight />
+                    </button>
+                  </div>
                 </div>
               </div>
 
@@ -244,6 +283,63 @@ const MainPage = () => {
                   title="latest News"
                   images={latestNews}
                   containerRef={latestNewsRef}
+                />
+              </div>
+            </div>
+            <div className="col-md-1 d-none d-md-block"></div>
+          </div>
+        </div>
+
+        {/* browse by category div */}
+        <div className="container-fluid py-5">
+          <div className="row ">
+            <div className="col-md-1  d-flex d-md-block"></div>
+            <div className="col-md-10">
+              <div className="row mt-5">
+                <div className="col-12 d-flex align-items-center justify-content-between flex-wrap gap-2">
+                  <h3
+                    className="m-0"
+                    style={{
+                      color: "#252525",
+                      fontSize: "2rem",
+                      fontFamily: "var(--font-playfair), serif",
+                    }}
+                  >
+                    Latest News
+                  </h3>
+
+                  <div className="flex-grow-1 d-none d-md-block mx-3">
+                    <hr
+                      className="m-0"
+                      style={{ borderTop: "2px solid black" }}
+                    />
+                  </div>
+
+                  {/* Arrows */}
+                  <div className="d-flex">
+                    <button
+                      onClick={() => scrollByCard(browseCategoryRef, -1)}
+                      className="btn rounded-circle me-2"
+                      style={{ borderColor: "black" }}
+                    >
+                      <FaArrowLeft />
+                    </button>
+                    <button
+                      onClick={() => scrollByCard(browseCategoryRef, 1)}
+                      className="btn rounded-circle"
+                      style={{ borderColor: "black" }}
+                    >
+                      <FaArrowRight />
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-12 ">
+                <SliderSectionBrowseCategory
+                  title="BrowseCategory"
+                  images={browseCategory}
+                  containerRef={browseCategoryRef}
                 />
               </div>
             </div>
@@ -287,6 +383,44 @@ function SliderSectionLsNews({ images, containerRef }) {
             <p className="text-muted mb-0" style={{ fontSize: "0.85rem" }}>
               {item.date} &nbsp; | &nbsp; By {item.author}
             </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function SliderSectionBrowseCategory({ images, containerRef }) {
+  return (
+    <div className="mt-4">
+      <div
+        className="d-flex"
+        style={{
+          overflowX: "auto",
+          scrollbarWidth: "none",
+          gap: "40px",
+          padding: "10px 0",
+        }}
+        ref={containerRef}
+      >
+        {(images ?? []).map((item, index) => (
+          <div
+            key={index}
+            style={{ flex: "0 0 auto", width: "380px" }}
+            className="text-start"
+          >
+            <img
+              src={item.img}
+              className="w-100 rounded"
+              alt={`Slide ${index + 1}`}
+              style={{ objectFit: "cover", height: "274px" }}
+            />
+            <div className="" style={{ backgroundColor: "black" }}>
+              <p style={{ color: "white" }}>{item.category}</p>
+              <h5 style={{ fontWeight: "600", color: "white" }}>
+                {item.guest}
+              </h5>
+            </div>
           </div>
         ))}
       </div>
