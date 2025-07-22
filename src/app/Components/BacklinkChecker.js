@@ -636,9 +636,29 @@ const Backlinkchecker = () => {
                       every backlink, gives you precise insights that help you
                       to grow faster.
                     </p>
-                    <p style={{ fontSize: "1.5rem", color: "#fff" }}>
-                      Try SeoBix free today!
+                    <p
+                      className="mb-4"
+                      style={{ fontSize: "1.5rem", color: "#fff" }}
+                    >
+                      Start Your SEO Journey with SeoBix!
                     </p>
+                    <a
+                      href="https://dashboard.seobix.com/Register"
+                      className="start-now-btn"
+                    >
+                      Sign Up with 3 month free trial
+                    </a>
+                    &nbsp;&nbsp;{" "}
+                    <span style={{ color: "#F80", fontWeight: "400" }}>
+                      <b>OR</b>
+                    </span>{" "}
+                    &nbsp; &nbsp;{" "}
+                    <a
+                      href="https://dashboard.seobix.com/Register"
+                      className="start-now-btn"
+                    >
+                      Explore More Tools
+                    </a>
                   </Col>
                   <Col md={6}>
                     <Row>
@@ -944,7 +964,6 @@ const Content = () => {
     <>
       <Col md={8}>
         <h3>Why Are Backlinks Important?</h3>
-        <h5 className="mb-3">Backlinks are crucial for several reasons:</h5>
         <p style={{ fontSize: "1.1rem", fontWeight: "600" }}>
           1. Improves SEO Rankings
         </p>
@@ -996,7 +1015,7 @@ const Content = () => {
           Over time, this exposure contributes to increased brand recognition
           and authority in your market.
         </p>
-        <div className="mt-4 mb-3">
+        <div className="p-3">
           <ToolSlider />
         </div>
         <p style={{ fontSize: "1.2rem", fontWeight: "600" }}>
