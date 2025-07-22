@@ -287,8 +287,8 @@ const Backlinkchecker = () => {
                         placeholder="Enter domain (e.g. seobix.com)"
                         style={{
                           background: "#2E3C56",
-                          color: "#fff",
-                          border: "1px solid  rgba(255, 255, 255, 0.6)",
+                          color: "#white",
+                          border: "1px solid  white",
                           borderRadius: "0",
                           fontSize: "1.2rem",
                           fontWeight: "bold",
@@ -299,22 +299,12 @@ const Backlinkchecker = () => {
                       <style>
                         {`
             input::placeholder {
-              color:  rgba(255, 255, 255, 0.6)!important;
+              color: white !important;
               opacity: 1;
             }
           `}
                       </style>
-                      <small
-                        className="text-muted ms-2"
-                        style={{
-                          color: " rgba(255, 255, 255, 0.6)",
-                          fontSize: "1.2rem",
-                        }}
-                      >
-                        For example,&nbsp;
-                        <span style={{ color: "#fff" }}>seobix.com </span>
-                        <span style={{ color: "#fff" }}>bumppy.com</span>
-                      </small>
+                      
                     </Form.Group>
                   </Col>
                   <Col md={3}>
@@ -378,7 +368,7 @@ const Backlinkchecker = () => {
                         FetchSiteMetrics("1");
                       }}
                     >
-                      Check backlinks
+                      Analyze
                     </Button>
                   </Col>
                 </Row>
@@ -627,7 +617,7 @@ const Backlinkchecker = () => {
               >
                 <Row>
                   <Col md={6}>
-                    <h3 style={{ fontWeight: "600", marginBottom: "1rem" }}>
+                    <h3 style={{ fontWeight: "600", marginBottom: "1rem" ,color:"white" , fontSize:"2.5rem"}}>
                       The most powerful backlink checker
                     </h3>
                     <p style={{ fontSize: "1.2rem", color: "#fff" }}>
