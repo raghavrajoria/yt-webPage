@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { RiDoubleQuotesL, RiDoubleQuotesR } from "react-icons/ri";
 
 import TestimonialsImg1 from "../TestimonialImg/Testimonial1.jpg";
 import TestimonialsImg2 from "../TestimonialImg/Testimonial2.jpg";
@@ -73,10 +74,13 @@ const testimonialsData = [
 
 const TestimonialCard = React.forwardRef(({ testimonial }, ref) => (
   <div className="testimonial-card" ref={ref}>
+    {/* Top-left quote */}
+    <div className="quote-icon top-left">
+      <RiDoubleQuotesL />
+    </div>
+
+    {/* User Info */}
     <div style={{ display: "flex", alignItems: "center", marginBottom: 8 }}>
-      <span style={{ fontSize: "4rem", color: "#799EFF", marginRight: 8 }}>
-        &#x275D;
-      </span>
       <img
         src={testimonial.avatar}
         alt={testimonial.name}
@@ -96,14 +100,18 @@ const TestimonialCard = React.forwardRef(({ testimonial }, ref) => (
       </span>
       <span style={{ fontStyle: "italic" }}>{testimonial.name}</span>
     </div>
+
+    {/* Testimonial Text */}
     <div style={{ fontSize: "1.1rem", textAlign: "left", marginBottom: 8 }}>
-      <span>{testimonial.text}</span>
+      <span>{testimonial.text}</span>{" "}
       <span style={{ fontWeight: "bold", fontStyle: "italic" }}>
         {testimonial.highlight}
       </span>
     </div>
-    <div style={{ textAlign: "right", fontSize: "4rem", color: "#799EFF" }}>
-      &#x275E;
+
+    {/* Bottom-right quote */}
+    <div className="quote-icon bottom-right">
+      <RiDoubleQuotesR />
     </div>
   </div>
 ));
@@ -146,13 +154,58 @@ const TestimonialPage = () => {
       </div>
       <style>{`
         .testimonial-card {
-          background: #fff;
-          border: 2px solid #cfe2ff;
-          border-radius: 16px;
-          margin: 32px 0;
-          padding: 24px 32px 16px 32px;
-          position: relative;
-        }
+  background: #fff;
+  border: 2px solid #cfe2ff;
+  border-radius: 16px;
+  margin: 32px 0;
+  padding: 20px 32px;
+  position: relative;
+}
+
+.quote-icon {
+  position: absolute;
+  background-color: #799EFF;
+  border-radius: 50%;
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+
+.quote-icon.top-left {
+  top: -20px;
+  left: -20px;
+}
+
+
+.quote-icon.bottom-right {
+  bottom: -20px;
+  right: -20px;
+}
+
+@media (max-width: 576px) {
+  .quote-icon {
+    height: 2.5rem;
+    width: 2.5rem;
+    font-size: 1rem;
+  }
+
+  .quote-icon.top-left {
+    top: -15px;
+    left: -15px;
+  }
+
+  .quote-icon.bottom-right {
+    bottom: -15px;
+    right: -15px;
+  }
+}
+
+
       `}</style>
     </div>
   );
