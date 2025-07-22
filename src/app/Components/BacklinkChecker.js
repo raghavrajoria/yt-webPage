@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import {
   Button,
   Col,
@@ -8,11 +8,24 @@ import {
   Table,
   Container,
 } from "react-bootstrap";
-import Select from "react-select";
 import { BASE_URL_API_TRANXT_UAT_API } from "../Utils/Constant";
-import { FaArrowAltCircleDown, FaArrowAltCircleRight } from "react-icons/fa";
-import Nav from "./Nav";
+import {
+  FaArrowAltCircleDown,
+  FaArrowAltCircleRight,
+  FaSearch,
+  FaChartBar,
+  FaFileAlt,
+  FaChevronRight,
+  FaChevronLeft,
+} from "react-icons/fa";
+import RootDomain from "..//Images/Root Domain.png";
+import LinkingDomainImg from "..//Images/Linking Domain.png";
+import domainAuthority from "..//Images/Domain Authority.png";
+import LinkPropensity from "..//Images/LinkPropensity.png";
+import SpamScore from "..//Images/SpamScore.png";
 import Footer from "./Footer";
+import Nav from "./Nav";
+import SideTab from "./Toolstab";
 const Backlinkchecker = () => {
   const [visibleRows, setVisibleRows] = useState(10);
   const [transactionLoaderState, setTransactionLoaderState] = useState(false);
@@ -164,6 +177,8 @@ const Backlinkchecker = () => {
   const handleInputChange = (e) => {
     setDomainInput(e.target.value);
   };
+  //   slider
+
   return (
     <>
       <style>
@@ -217,7 +232,7 @@ const Backlinkchecker = () => {
           <Nav />
         </div>
         <Row
-          className="d-flex justify-content-center mb-5"
+          className="d-flex justify-content-center "
           style={{ background: "#2E3C56" }}
         >
           <Col
@@ -251,9 +266,9 @@ const Backlinkchecker = () => {
             <div className="m-3">
               <style>
                 {`
-            .hide-scrollbar::-webkit-scrollbar {
-            display: none; }
-                               `}
+ .hide-scrollbar::-webkit-scrollbar {
+ display: none; }
+ `}
               </style>
 
               <h1
@@ -288,23 +303,23 @@ const Backlinkchecker = () => {
                         style={{
                           background: "#2E3C56",
                           color: "#white",
-                          border: "1px solid  white",
+                          border: "1px solid white",
                           borderRadius: "0",
                           fontSize: "1.2rem",
-                          fontWeight: "bold",
+                          fontWeight: "400",
                           height: "48px",
+                          color: "#fff",
                         }}
                         className="shadow-sm px-4"
                       />
                       <style>
                         {`
-            input::placeholder {
-              color: white !important;
-              opacity: 1;
-            }
-          `}
+ input::placeholder {
+ color: white !important;
+ opacity: 1;
+ }
+ `}
                       </style>
-                      
                     </Form.Group>
                   </Col>
                   <Col md={3}>
@@ -312,43 +327,30 @@ const Backlinkchecker = () => {
                       <Form.Label className="visually-hidden">
                         Domain Type
                       </Form.Label>
-                      <Select
-                        options={domainTypeOptions}
-                        value={selectedDomainType}
-                        onChange={setSelectedDomainType}
-                        classNamePrefix="react-select"
-                        styles={{
-                          control: (base) => ({
-                            ...base,
-                            background: "#2E3C56",
-                            color: "#fff",
-                            borderRadius: 0,
-                            border: "1px solid #cbd5e1",
-                            minHeight: "48px",
-                            fontSize: "1.2rem",
-                            fontWeight: "bold",
-                          }),
-                          singleValue: (base) => ({
-                            ...base,
-                            color: "#fff",
-                          }),
-                          menu: (base) => ({
-                            ...base,
-                            background: "#2E3C56",
-                            color: "#fff",
-                          }),
-                          option: (base, state) => ({
-                            ...base,
-                            background: state.isFocused ? "#3a4a6a" : "#2E3C56",
-                            color: "#fff",
-                          }),
-                          placeholder: (base) => ({
-                            ...base,
-                            color: "#cbd5e1",
-                          }),
+                      <Form.Select
+                        value={selectedDomainType.value}
+                        onChange={(e) =>
+                          setSelectedDomainType({
+                            value: e.target.value,
+                            label:
+                              e.target.value === "root"
+                                ? "🌐 Root Domain"
+                                : "🔗 Sub Domain",
+                          })
+                        }
+                        style={{
+                          background: "#2E3C56",
+                          color: "#fff",
+                          border: "1px solid #cbd5e1",
+                          borderRadius: 0,
+                          fontSize: "1.2rem",
+                          fontWeight: "bold",
+                          height: "48px",
                         }}
-                        placeholder="Subdomains"
-                      />
+                      >
+                        <option value="root">🌐 Root Domain</option>
+                        <option value="sub">🔗 Sub Domain</option>
+                      </Form.Select>
                     </Form.Group>
                   </Col>
                   <Col md={2}>
@@ -604,7 +606,6 @@ const Backlinkchecker = () => {
                   )}
                 </div>
               )}
-              {/* backlink checker div */}
               <div
                 style={{
                   background: "#2E3C56",
@@ -617,23 +618,26 @@ const Backlinkchecker = () => {
               >
                 <Row>
                   <Col md={6}>
-                    <h3 style={{ fontWeight: "600", marginBottom: "1rem" ,color:"white" , fontSize:"2.5rem"}}>
+                    <h3
+                      style={{
+                        fontWeight: "600",
+                        marginBottom: "1rem",
+                        color: "white",
+                        fontSize: "2.5rem",
+                      }}
+                    >
                       The most powerful backlink checker
                     </h3>
                     <p style={{ fontSize: "1.2rem", color: "#fff" }}>
-                      SEOBIX has the&nbsp;
+                      SeoBix 's Backlinks Checker &nbsp;
                       <span style={{ color: "#F80", fontWeight: "400" }}>
-                        second most active web crawler&nbsp;
+                        tracks and monitors &nbsp;
                       </span>
-                      after Google, which means we have the&nbsp;
-                      <span style={{ color: "#F80", fontWeight: "400" }}>
-                        best backlink database&nbsp;
-                      </span>
-                      in the industry.
+                      every backlink, gives you precise insights that help you
+                      to grow faster.
                     </p>
-                    <p style={{ fontSize: "1.2rem", color: "#fff" }}>
-                      Our backlink index is updated with fresh data every 15
-                      minutes.
+                    <p style={{ fontSize: "1.5rem", color: "#fff" }}>
+                      Try SeoBix free today!
                     </p>
                   </Col>
                   <Col md={6}>
@@ -643,7 +647,7 @@ const Backlinkchecker = () => {
                         style={{ textAlign: "center", marginBottom: "2rem" }}
                       >
                         <div style={{ fontSize: "4rem", fontWeight: "600" }}>
-                          492B
+                          1M+
                         </div>
                         <div style={{ fontSize: "1.2rem", color: "#cbd5e1" }}>
                           Pages in index
@@ -654,7 +658,7 @@ const Backlinkchecker = () => {
                         style={{ textAlign: "center", marginBottom: "2rem" }}
                       >
                         <div style={{ fontSize: "4rem", fontWeight: "600" }}>
-                          28T
+                          60K+
                         </div>
                         <div style={{ fontSize: "1.2rem", color: "#cbd5e1" }}>
                           Internal backlinks
@@ -662,7 +666,7 @@ const Backlinkchecker = () => {
                       </Col>
                       <Col xs={6} style={{ textAlign: "center" }}>
                         <div style={{ fontSize: "4rem", fontWeight: "600" }}>
-                          500M
+                          50+
                         </div>
                         <div style={{ fontSize: "1.2rem", color: "#cbd5e1" }}>
                           Domains
@@ -670,14 +674,10 @@ const Backlinkchecker = () => {
                       </Col>
                       <Col xs={6} style={{ textAlign: "center" }}>
                         <div style={{ fontSize: "4rem", fontWeight: "600" }}>
-                          35T
+                          90K+
                         </div>
                         <div style={{ fontSize: "1.2rem", color: "#cbd5e1" }}>
                           External backlinks
-                          <br />
-                          <span style={{ fontSize: "1rem" }}>
-                            (historical records)
-                          </span>
                         </div>
                       </Col>
                     </Row>
@@ -687,8 +687,57 @@ const Backlinkchecker = () => {
             </div>
           </Col>
         </Row>
+        <Row className="justify-content-center mt-3" style={{ margin: "0" }}>
+          <Col md={10}>
+            <Row className="justify-content-between">
+              {/* Content */}
+              <Content />
+              {/* sideTab */}
+              <Col md={3}>
+                <div
+                  className="mb-5"
+                  style={{
+                    position: "sticky",
+                    top: "100px",
+                    zIndex: 10,
+                    background: "#f8f9fa",
+                    padding: "1rem",
+                    borderRadius: "10px",
+                  }}
+                >
+                  <h5
+                    className="text-center mb-4"
+                    style={{
+                      fontWeight: "bold",
+                      fontSize: "1.3rem",
+                      color: "#fff",
+                      backgroundColor: "#799EFF",
+                      display: "inline-block",
+                      padding: "6px 16px",
+                      borderRadius: "0.5rem",
+                    }}
+                  >
+                    🚀 Explore More SEO Tools
+                  </h5>
+                  <SideTab />
+                </div>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+        <div
+          className="m-0 p-0"
+          style={{
+            overflow: "hidden",
+            background:
+              "linear-gradient(to right, rgb(175, 221, 255), rgb(255, 255, 255))",
 
-        <Footer />
+            borderTopRightRadius: "2rem",
+            borderTopLeftRadius: "2rem",
+          }}
+        >
+          <Footer />
+        </div>
       </Container>
     </>
   );
@@ -737,3 +786,314 @@ const CustomPieChart = ({ value, fillColor = "#441752" }) => {
 };
 
 export default Backlinkchecker;
+
+const relatedTools = [
+  {
+    name: "Backlink Checker",
+    icon: <FaSearch size={24} color="#0A3981" />,
+    desc: " Generate high-quality backlinks instantly with Backlinks Generator, strengthen your website authority and improve Search engine rankings.",
+    href: "backlink-generator",
+  },
+  {
+    name: "Link Building Tool",
+    icon: <FaChartBar size={24} color="#0A3981" />,
+    desc: "Store backlinks with Link Building Tool,  check your backlinks anytime, and secure your website from broken links.",
+    href: "/link-building-tool",
+  },
+  {
+    name: "Top Pages",
+    icon: <FaFileAlt size={24} color="#0A3981" />,
+    desc: "Identify your highest-performing pages by traffic and engagement. Use this insight to replicate success and refine your SEO content strategy effectively.",
+    href: "/check-top-linking-domain",
+  },
+];
+const ToolSlider = () => {
+  const sliderRef = useRef(null);
+
+  const scrollLeft = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollLeft -= 300;
+    }
+  };
+
+  const scrollRight = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollLeft += 300;
+    }
+  };
+
+  return (
+    <div className="mt-4" style={{ position: "relative" }}>
+      {/* Left Arrow */}
+      <button
+        onClick={scrollLeft}
+        style={{
+          position: "absolute",
+          left: "0",
+          top: "-9%",
+          transform: "translateY(-50%)",
+          zIndex: 10,
+          backgroundColor: "#799EFF",
+          color: "#fff",
+          border: "none",
+          borderRadius: "50%",
+          width: "40px",
+          height: "40px",
+          cursor: "pointer",
+          boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
+        }}
+      >
+        <FaChevronLeft />
+      </button>
+
+      <button
+        onClick={scrollRight}
+        style={{
+          position: "absolute",
+          right: "0",
+          top: "-9%",
+          transform: "translateY(-50%)",
+          zIndex: 10,
+          backgroundColor: "#799EFF",
+          color: "#fff",
+          border: "none",
+          borderRadius: "50%",
+          width: "40px",
+          height: "40px",
+          cursor: "pointer",
+          boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
+        }}
+      >
+        <FaChevronRight />
+      </button>
+
+      <div
+        ref={sliderRef}
+        className="mb-4"
+        style={{
+          display: "flex",
+          overflowX: "auto",
+          padding: "1rem",
+          gap: "1rem",
+          scrollbarWidth: "none",
+          scrollBehavior: "smooth",
+        }}
+      >
+        {relatedTools.map((tool, idx) => (
+          <div
+            key={idx}
+            style={{
+              minWidth: "250px",
+              flex: "0 0 auto",
+              background: "#f4f8ff",
+              borderRadius: "12px",
+              padding: "1rem",
+              boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+              textAlign: "center",
+              transition: "transform 0.3s",
+            }}
+          >
+            <div style={{ marginBottom: "0.5rem" }}>{tool.icon}</div>
+            <h6 style={{ color: "#0A3981", fontWeight: "bold" }}>
+              {tool.name}
+            </h6>
+            <p
+              style={{
+                fontSize: "0.9rem",
+                minHeight: "60px",
+                lineHeight: "1.4",
+              }}
+            >
+              {tool.desc
+                .split(" ")
+                .map((word, i) =>
+                  (i + 1) % 7 === 0 ? word + "\n" : word + " "
+                )
+                .join("")
+                .split("\n")
+                .map((line, idx) => (
+                  <span key={idx}>
+                    {line.trim()}
+                    <br />
+                  </span>
+                ))}
+            </p>
+            <a
+              href={tool.href}
+              style={{
+                color: "#fff",
+                backgroundColor: "#799EFF",
+                padding: "6px 12px",
+                borderRadius: "8px",
+                textDecoration: "none",
+                display: "inline-block",
+                fontWeight: "bold",
+              }}
+            >
+              Try Now →
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const Content = () => {
+  return (
+    <>
+      <Col md={8}>
+        <h3>Why Are Backlinks Important?</h3>
+        <h5 className="mb-3">Backlinks are crucial for several reasons:</h5>
+        <p style={{ fontSize: "1.1rem", fontWeight: "600" }}>
+          1. Improves SEO Rankings
+        </p>
+        <p>
+          Backlinks act like endorsements from other websites, signaling to
+          search engines that your content is valuable and trustworthy. The more
+          high-quality backlinks you have especially from authoritative domains
+          the higher your chances of ranking on the first page of Google. Search
+          engine algorithms use backlinks as a major ranking factor, making them
+          critical for SEO success.
+        </p>
+        <p style={{ fontSize: "1.1rem", fontWeight: "600" }}>
+          2. Increases Website Traffic
+        </p>
+        <p>
+          Backlinks placed on relevant or high-traffic websites can bring
+          targeted visitors directly to your site. When users click on those
+          links, they are directed to your content, which increases your chances
+          of conversions. This referral traffic is often highly engaged as it
+          comes from users already interested in related topics.
+        </p>
+        <p style={{ fontSize: "1.1rem", fontWeight: "600" }}>
+          3. Builds Credibility and Authority
+        </p>
+        <p>
+          Earning backlinks from reputable sources adds credibility to your
+          brand in the eyes of both search engines and users. It shows that
+          other trusted websites find your content valuable enough to reference.
+          Over time this helps improve your site’s domain authority and
+          positions you as a thought leader in your niche.
+        </p>
+        <p style={{ fontSize: "1.1rem", fontWeight: "600" }}>
+          4. Faster Indexing by Search Engines
+        </p>
+        <p>
+          Search engine bots discover and crawl the web by following links. If
+          your website receives backlinks from already indexed and frequently
+          crawled websites it increases the chances of your content being found
+          and indexed faster. This is especially helpful for new websites or
+          newly published pages.
+        </p>
+        <p style={{ fontSize: "1.1rem", fontWeight: "600" }}>
+          5. Strengthens Brand Visibility
+        </p>
+        <p>
+          Backlinks from industry-specific websites, blogs, or news outlets help
+          put your brand in front of the right audience. Each backlink serves as
+          a gateway for new users to discover your brand, products, or services.
+          Over time, this exposure contributes to increased brand recognition
+          and authority in your market.
+        </p>
+        <div className="mt-4 mb-3">
+          <ToolSlider />
+        </div>
+        <p style={{ fontSize: "1.2rem", fontWeight: "600" }}>
+          Decode Your Backlink Profile: Root Domains, Spam Score & More
+          Explained
+        </p>
+
+        <p style={{ fontSize: "1.1rem", fontWeight: "600" }}>1. Root Domain</p>
+        <img
+          className="mb-2"
+          src={RootDomain}
+          alt="Root Domain"
+          style={{ height: "20rem", width: "100%" }}
+        />
+
+        <p>
+          The root domain is the base-level domain name of a website, such as
+          example.com, without any prefixes like “www” or subdomains like
+          “blog.example.com.” In SEO, backlinks from different root domains are
+          considered more valuable than multiple links from the same one. This
+          is because each unique root domain acts as an independent vote of
+          trust. Search engines prioritize backlinks from a variety of root
+          domains to assess your site’s authority.
+        </p>
+        <p style={{ fontSize: "1.1rem", fontWeight: "600" }}>
+          2. Linking Domain
+        </p>
+        <img
+          className="mb-2"
+          src={LinkingDomainImg}
+          alt="Linking Domain"
+          style={{ height: "20rem", width: "100%" }}
+        />
+        <p>
+          A linking domain is any external website that provides at least one
+          backlink to your site. Even if the same domain links to you multiple
+          times from different pages, it still counts as one linking domain. The
+          number of unique linking domains is a key indicator of your website’s
+          backlink diversity and trustworthiness. More linking domains from
+          reputable sites generally mean better search engine rankings.
+        </p>
+
+        <p style={{ fontSize: "1.1rem", fontWeight: "600" }}>
+          3. Domain Authority
+        </p>
+        <img
+          className="mb-2"
+          src={domainAuthority}
+          alt="Linking Domain"
+          style={{ width: "50vw" }}
+        />
+        <p>
+          Link propensity refers to how frequently a website links out to other
+          domains. Websites with high link propensity often include many
+          outbound links (like blogs or directories), while those with low link
+          propensity (such as news sites or educational institutions) rarely do
+          so. A backlink from a site with low link propensity is often more
+          valuable as it suggests the link was earned through high-quality
+          trusted content.
+        </p>
+
+        <p style={{ fontSize: "1.1rem", fontWeight: "600" }}>
+          4. Link Propensity
+        </p>
+        <img
+          className="mb-2"
+          src={LinkPropensity}
+          alt="Linking Domain"
+          style={{ height: "20rem", width: "100%" }}
+        />
+        <p>
+          Link propensity refers to how frequently a website links out to other
+          domains. Websites with high link propensity often include many
+          outbound links (like blogs or directories), while those with low link
+          propensity (such as news sites or educational institutions) rarely do
+          so. A backlink from a site with low link propensity is often more
+          valuable as it suggests the link was earned through high-quality
+          trusted content.
+        </p>
+
+        <p style={{ fontSize: "1.1rem", fontWeight: "600" }}>5. Spam Score</p>
+        <img
+          className="mb-2"
+          src={SpamScore}
+          alt="Linking Domain"
+          style={{ height: "20rem", width: "100%" }}
+        />
+        <p>
+          Spam Score is a metric developed to estimate the risk of a domain
+          being flagged as spam by search engines. It’s usually expressed as a
+          percentage higher values indicate a greater risk. This score is based
+          on various red flags like low-quality content, keyword stuffing,
+          excessive ads or linking to bad neighborhoods. Having backlinks from
+          high spam score websites can harm your SEO and should be cleaned or
+          disavowed.
+        </p>
+      </Col>
+    </>
+  );
+};
