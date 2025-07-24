@@ -1,22 +1,23 @@
 import React, { useState } from "react";
 
 import { Table, Button, Pagination } from "react-bootstrap";
-import BgWomen from "..//LinkGuestImgs/employeeBg.png";
-import Feature1 from "..//LinkGuestImgs/featured-1.png";
-import Feature2 from "..//LinkGuestImgs/featured-2.png";
-import Feature3 from "..//LinkGuestImgs/featured-3.png";
-import Feature4 from "..//LinkGuestImgs/featured-4.png";
-import Feature5 from "..//LinkGuestImgs/featured-5.png";
-import Feature6 from "..//LinkGuestImgs/featured-6.png";
-import Card1 from "..//LinkGuestImgs/White-Label-Assurance.png";
-import Card2 from "..//LinkGuestImgs/Comprehensive-Research.png";
-import Card3 from "..//LinkGuestImgs/Effective-Clustering.png";
-import Card4 from "..//LinkGuestImgs/Cost-Effective-Solutions.png";
+import BgWomen from "../Images/LinkGuestImgs/employeeBg.png";
+import Feature1 from "../Images/LinkGuestImgs/featured-1.png";
+import Feature2 from "../Images/LinkGuestImgs/featured-2.png";
+import Feature3 from "../Images/LinkGuestImgs/featured-3.png";
+import Feature4 from "../Images/LinkGuestImgs/featured-4.png";
+import Feature5 from "../Images/LinkGuestImgs/featured-5.png";
+import Feature6 from "../Images/LinkGuestImgs/featured-6.png";
+import Card1 from "../Images/LinkGuestImgs/White-Label-Assurance.png";
+import Card2 from "../Images/LinkGuestImgs/Comprehensive-Research.png";
+import Card3 from "../Images/LinkGuestImgs/Effective-Clustering.png";
+import Card4 from "../Images/LinkGuestImgs/Cost-Effective-Solutions.png";
 import { FaDollarSign } from "react-icons/fa";
 import { CgLogIn } from "react-icons/cg";
 import { FaGlobe, FaLanguage, FaRegClock } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
-
+import Nav from "./Navbar";
+import Footer from "./Footer";
 const BackLinkGuest = () => {
   const dummyData = [
     {
@@ -180,6 +181,21 @@ const BackLinkGuest = () => {
 
   return (
     <div style={{ overflow: "hidden" }}>
+      <div>
+        {/* <div
+ className="d-flex justify-content-center"
+ style={{ background: "#fdca40" }}
+ >
+ <p className="p-2 m-0 text-center">
+ Start with free trial of <b>SeoBix!</b> - boost your SEO
+ game&nbsp;&nbsp;
+ <Button size="sm" variant="success">
+ Know More
+ </Button>
+ </p>
+ </div> */}
+        <Nav />
+      </div>
       <div
         className="min-vh-100 d-flex align-items-center"
         style={{
@@ -310,7 +326,7 @@ const BackLinkGuest = () => {
           {/* Table */}
           <div className="container my-5">
             <div
-              className=" p-3 rounded"
+              className=" p-3 rounded "
               style={{
                 background:
                   "linear-gradient(to right, rgba(175, 221, 255, 0.8), rgba(255, 255, 255, 0.8))",
@@ -320,7 +336,7 @@ const BackLinkGuest = () => {
                 className="mb-3 fw-bold text-center"
                 style={{ color: "#3c5a99" }}
               >
-                60416 Websites & Blogs That Accept Guest Posts
+                600 Websites & Blogs That Accept Guest Posts
               </h6>
               <div className="table-responsive">
                 <table className="table table-bordered align-middle text-center">
@@ -558,7 +574,7 @@ const BackLinkGuest = () => {
                       {item.id}
                     </div>
                     <h6
-                      className="card-title  mb-2"
+                      className="card-title mb-2"
                       style={{ color: "#3c5a99", fontWeight: "bold" }}
                     >
                       {item.title}
@@ -620,6 +636,19 @@ const BackLinkGuest = () => {
             </div>
           ))}
         </div>
+      </div>
+      <div
+        className="m-0 p-0"
+        style={{
+          overflow: "hidden",
+          background:
+            "linear-gradient(to right, rgb(175, 221, 255), rgb(255, 255, 255))",
+
+          borderTopRightRadius: "2rem",
+          borderTopLeftRadius: "2rem",
+        }}
+      >
+        <Footer />
       </div>
     </div>
   );
