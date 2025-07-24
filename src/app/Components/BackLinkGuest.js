@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+import CountUp from "react-countup";
 
-import { Table, Button, Pagination } from "react-bootstrap";
 import BgWomen from "../Images/LinkGuestImgs/employeeBg.png";
 import Feature1 from "../Images/LinkGuestImgs/featured-1.png";
 import Feature2 from "../Images/LinkGuestImgs/featured-2.png";
@@ -283,15 +283,23 @@ const BackLinkGuest = () => {
             style={{ backgroundColor: "#0c1d35", color: "white" }}
           >
             <div className="col-md-4 mb-3 mt-3">
-              <h4 style={{ fontWeight: "bold" }}>60,416+</h4>
+              <h4 style={{ fontWeight: "bold" }}>
+                <CountUp end={60416} duration={2.5} separator="," />+
+              </h4>
               <p className="mb-0">Registered Websites</p>
             </div>
+
             <div className="col-md-4 mb-3 mt-3">
-              <h4 style={{ fontWeight: "bold" }}>34,750+</h4>
+              <h4 style={{ fontWeight: "bold" }}>
+                <CountUp end={34750} duration={2.5} separator="," />+
+              </h4>
               <p className="mb-0">Publishers & Writers</p>
             </div>
+
             <div className="col-md-4 mb-3 mt-3">
-              <h4 style={{ fontWeight: "bold" }}>365,304+</h4>
+              <h4 style={{ fontWeight: "bold" }}>
+                <CountUp end={365304} duration={2.5} separator="," />+
+              </h4>
               <p className="mb-0">Tasks Completed</p>
             </div>
           </div>
