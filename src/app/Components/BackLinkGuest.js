@@ -309,8 +309,17 @@ const BackLinkGuest = () => {
 
           {/* Table */}
           <div className="container my-5">
-            <div className="bg-light p-3 rounded">
-              <h6 className="mb-3 fw-bold text-primary">
+            <div
+              className=" p-3 rounded"
+              style={{
+                background:
+                  "linear-gradient(to right, rgba(175, 221, 255, 0.8), rgba(255, 255, 255, 0.8))",
+              }}
+            >
+              <h6
+                className="mb-3 fw-bold text-center"
+                style={{ color: "#3c5a99" }}
+              >
                 60416 Websites & Blogs That Accept Guest Posts
               </h6>
               <div className="table-responsive">
