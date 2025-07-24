@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Accordion, Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Accordion, Card, Col, Container, Row } from "react-bootstrap";
 // import tool16 from "../Images/tool16.svg";
 // import tool18 from "../Images/tool18.svg";
 // import tool19 from "../Images/tool19.png";
@@ -48,7 +48,29 @@ const Seoaudit = () => {
           <Seoanalyzer />
         </Col>
       </Row>
+      <ContentMain />
 
+      <div
+        className="m-0 p-0"
+        style={{
+          overflow: "hidden",
+          background:
+            "linear-gradient(to right, rgb(175, 221, 255), rgb(255, 255, 255))",
+          borderTopRightRadius: "2rem",
+          borderTopLeftRadius: "2rem",
+        }}
+      >
+        <Footer />
+      </div>
+    </Container>
+  );
+};
+
+export default Seoaudit;
+
+function ContentMain() {
+  return (
+    <>
       <Row className="justify-content-center mt-3" style={{ margin: "0" }}>
         <Col md={10}>
           <Row className="justify-content-between">
@@ -423,21 +445,6 @@ const Seoaudit = () => {
           </Row>
         </Col>
       </Row>
-
-      <div
-        className="m-0 p-0"
-        style={{
-          overflow: "hidden",
-          background:
-            "linear-gradient(to right, rgb(175, 221, 255), rgb(255, 255, 255))",
-          borderTopRightRadius: "2rem",
-          borderTopLeftRadius: "2rem",
-        }}
-      >
-        <Footer />
-      </div>
-    </Container>
+    </>
   );
-};
-
-export default Seoaudit;
+}
