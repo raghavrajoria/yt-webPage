@@ -195,9 +195,8 @@ const BackLinkGuest = () => {
         <div
           className="w-100 h-100"
           style={{
-            // background:
-            //   "linear-gradient(to right, rgb(175, 221, 255), rgb(255, 255, 255))",
-
+            background:
+              "linear-gradient(to right, rgba(175, 221, 255, 0.8), rgba(255, 255, 255, 0.8))",
             position: "absolute",
             top: 0,
             left: 0,
@@ -448,49 +447,7 @@ const BackLinkGuest = () => {
 
               .btn-combo {
                 display: flex;
-                font-size: 0.85rem;
-                width: 100%;
-                border-radius: 0.375rem;
-                overflow: hidden;
-                border: 1px solid #ccc;
-              }
-
-              .btn-combo .left-btn {
-                background-color: #f0f0f0;
-                color: #333;
-                padding: 0.4rem 0.6rem;
-                flex: 1;
-                text-align: center;
-              }
-
-              .btn-combo .right-btn {
-                background-color: #2c7be5;
-                color: #fff;
-                padding: 0.4rem 0.6rem;
-                flex-shrink: 0;
-                text-align: center;
-              }
-
-              .btn-combo .right-btn:hover {
-                background-color: #1b63c1;
-              }
-
-              .btn-view {
-                font-size: 0.75rem;
-                padding: 0.3rem 0.5rem;
-              }
-
-              @media (max-width: 576px) {
-                .btn-combo {
-                  flex-direction: column;
-                }
-                .btn-combo .left-btn,
-                .btn-combo .right-btn {
-                  width: 100%;
-                }
-              }
-              .btn-combo {
-                display: flex;
+                flex-direction: row;
                 width: 100%;
                 height: 36px;
                 border-radius: 5px;
@@ -527,6 +484,30 @@ const BackLinkGuest = () => {
                 background-color: #2566c8;
               }
 
+              .btn-view {
+                margin-top: 6px;
+                font-size: 14px;
+                color: #dc3545;
+                border: 1px solid #dc3545;
+              }
+
+              .btn-view:hover {
+                background-color: #dc3545;
+                color: #fff;
+              }
+
+              @media (max-width: 576px) {
+                .btn-combo {
+                  flex-direction: column;
+                  height: auto;
+                }
+
+                .left-btn,
+                .right-btn {
+                  width: 100%;
+                  height: 36px;
+                }
+              }
               .btn-view {
                 margin-top: 6px;
                 font-size: 14px;
