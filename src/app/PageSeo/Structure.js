@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Col, Container, Row, Card, Form } from "react-bootstrap";
-import Nav from "./Nav";
+import Nav from "./Navbar";
 import Footer from "./Footer";
 import SideTab from "./Toolstab";
 import {
@@ -11,10 +11,10 @@ import {
   FaFileAlt,
   FaSearch,
 } from "react-icons/fa";
-// import pay from "../Images/pay.png";
+import pay from "../Images/pay.png";
 
-// import structure2 from "../Images/structure2.svg";
-// import structure3 from "../Images/structure3.png";
+import structure2 from "../Images/structure2.svg";
+import structure3 from "../Images/structure3.png";
 const Structure = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -164,12 +164,12 @@ const ContentStructure = () => {
             </li>
           </ul>
           <div className="d-flex justify-content-center">
-            {/* <img
-                className="mb-3"
-                src={structure3}
-                alt="seobix"
-                style={{ width: "65vw" }}
-              /> */}
+            <img
+              className="mb-3"
+              src={structure3}
+              alt="seobix"
+              style={{ width: "65vw" }}
+            />
           </div>
           <div className="mt-5">
             <ToolSlider />
@@ -247,12 +247,12 @@ const ContentStructure = () => {
             and keep it above the general search engines with using SeoBix.
           </p>
           <div className="d-flex justify-content-center">
-            {/* <img
-                className="mb-3"
-                src={structure2}
-                alt="seobix"
-                style={{ width: "65vw" }}
-              /> */}
+            <img
+              className="mb-3"
+              src={structure2}
+              alt="seobix"
+              style={{ width: "65vw" }}
+            />
           </div>
           <h4>4. Convey Message That Directly Addresses Search Engines</h4>
 
@@ -520,7 +520,7 @@ const Plancard = () => {
       buttonText: "Buy Plan",
       color: "#e0f2fe",
       border: "#38bdf8",
-      image: "pay",
+      image: pay,
     },
     {
       title: "Basic",
@@ -529,7 +529,7 @@ const Plancard = () => {
       buttonText: "Buy Plan",
       color: "#e7f5ff",
       border: "#339af0",
-      image: "pay",
+      image: pay,
     },
     {
       title: "Standard",
@@ -538,7 +538,7 @@ const Plancard = () => {
       buttonText: "Buy Plan",
       color: "#e6fcf5",
       border: "#20c997",
-      image: "pay",
+      image: pay,
     },
     {
       title: "Premium",
@@ -547,7 +547,7 @@ const Plancard = () => {
       buttonText: "Buy Plan",
       color: "#fff3bf",
       border: "#fcc419",
-      image: "pay",
+      image: pay,
     },
   ];
 
