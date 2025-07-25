@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Col, Container, Row, Card, Form } from "react-bootstrap";
-import Nav from "./Nav";
+import Nav from "./Navbar";
 import Footer from "./Footer";
 import SideTab from "./Toolstab";
 import {
@@ -14,7 +14,7 @@ import {
 // import page2 from "../Images/page2.svg";
 // import page1 from "../Images/page1.svg";
 // import page3 from "../Images/page3.png";
-// import pay from "../Images/pay.png";
+import pay from "../Images/pay.png";
 const Page = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -445,7 +445,7 @@ const Plancard = () => {
       buttonText: "Buy Plan",
       color: "#e0f2fe",
       border: "#38bdf8",
-      image: "pay",
+      image: pay,
     },
     {
       title: "Basic",
@@ -454,7 +454,7 @@ const Plancard = () => {
       buttonText: "Buy Plan",
       color: "#e7f5ff",
       border: "#339af0",
-      image: "pay",
+      image: pay,
     },
     {
       title: "Standard",
@@ -463,7 +463,7 @@ const Plancard = () => {
       buttonText: "Buy Plan",
       color: "#e6fcf5",
       border: "#20c997",
-      image: "pay",
+      image: pay,
     },
     {
       title: "Premium",
@@ -472,7 +472,7 @@ const Plancard = () => {
       buttonText: "Buy Plan",
       color: "#fff3bf",
       border: "#fcc419",
-      image: "pay",
+      image: pay,
     },
   ];
 
