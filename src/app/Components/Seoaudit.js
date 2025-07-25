@@ -4,7 +4,7 @@ import { Accordion, Card, Col, Container, Row } from "react-bootstrap";
 // import tool16 from "../Images/tool16.svg";
 // import tool18 from "../Images/tool18.svg";
 // import tool19 from "../Images/tool19.png";
-import Nav from "./Nav";
+import Nav from "./Navbar";
 import Footer from "./Footer";
 import SideTab from "./Toolstab";
 import Seoanalyzer from "./Seoauditt";

@@ -15,7 +15,7 @@ import "./Navbar.css";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { IoArrowRedoSharp } from "react-icons/io5";
 
-const Nav = () => {
+const Navbar = () => {
   const submenuRef = useRef(null);
   const [expanded, setExpanded] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);

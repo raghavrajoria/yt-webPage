@@ -24,7 +24,7 @@ import domainAuthority from "..//Images/Domain Authority.png";
 import LinkPropensity from "..//Images/LinkPropensity.png";
 import SpamScore from "..//Images/SpamScore.png";
 import Footer from "./Footer";
-import Nav from "./Nav";
+import Nav from "./Navbar";
 import SideTab from "./Toolstab";
 const Backlinkchecker = () => {
   const [visibleRows, setVisibleRows] = useState(10);
