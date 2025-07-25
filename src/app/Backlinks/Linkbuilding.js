@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Col, Container, Row, Card, Form } from "react-bootstrap";
-import Nav from "./Nav";
+import Nav from "./Navbar";
 import Footer from "./Footer";
 import SideTab from "./Toolstab";
 import toolten from "../Images/tool10.png";
