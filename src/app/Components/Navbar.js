@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import logo from "../Images/Logo.svg";
+// import logo from "../Images/logo.svg";
 import {
   Button,
   Dropdown,
@@ -10,18 +10,62 @@ import {
   Row,
   Col,
 } from "react-bootstrap";
-import { href, Link } from "react-router-dom";
+// import helpIcon from "../Images/aivideo1.gif";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { IoArrowRedoSharp } from "react-icons/io5";
-
-const Navbar = () => {
+const Nav = () => {
+  const [activeSubmenu, setActiveSubmenu] = useState(null);
+  const [activeChildSubmenu, setActiveChildSubmenu] = useState(null);
   const submenuRef = useRef(null);
   const [expanded, setExpanded] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const [hoverDropdown, setHoverDropdown] = useState(null);
+  const [openedByClick, setOpenedByClick] = useState(false);
+
+  const handleMenuEnter = () => {
+    if (window.innerWidth >= 992) {
+      clearTimeout(hoverTimeoutRef.current);
+      setHoverDropdown("tools");
+    }
+  };
+
+  const handleMenuLeave = () => {
+    if (window.innerWidth >= 992 && !openedByClick) {
+      hoverTimeoutRef.current = setTimeout(() => {
+        setHoverDropdown(null);
+      }, 300);
+    }
+  };
 
   useEffect(() => {
     import("bootstrap/dist/js/bootstrap.bundle.min.js");
+  }, []);
+  const hoverTimeoutRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (submenuRef.current && !submenuRef.current.contains(event.target)) {
+        setHoverDropdown(null);
+        setOpenedByClick(false);
+        setActiveSubmenu(null);
+        setActiveChildSubmenu(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 992) {
+        // lg breakpoint
+        setExpanded(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const submenuData = [
@@ -44,21 +88,11 @@ const Navbar = () => {
           desc: "Find Competitor’s  Ranking keywords and grow your traffic",
           href: "/discover-your-competitors-keywords-to-boost-your-rankings-with-seobix",
         },
-        // {
-        //   name: "Linking Domain",
-        //   desc: "Analyze your linking domains effortlessly with SeoBix",
-        //   href: "/linking-domain-checker",
-        // },
-        // {
-        //   name: "Top Pages",
-        //   desc: "Find the top domains linked to your website",
-        //   href: "/check-top-linking-domain",
-        // },
-        // {
-        //   name: "Link Building Tool",
-        //   desc: "Store Your Backlinks easily with SeoBix",
-        //   href: "/link-building-tool",
-        // },
+        {
+          name: "Top Pages",
+          desc: "Find the top domains linked to your website",
+          href: "/check-top-linking-domain",
+        },
       ],
     },
     {
@@ -97,7 +131,7 @@ const Navbar = () => {
         {
           name: "Quality Content Checker",
           desc: "Analyze the AI content & quality of the content ",
-          href: "/quality-content-checker",
+          href: "/content-quality-checker",
         },
         {
           name: "Humanizer",
@@ -112,12 +146,12 @@ const Navbar = () => {
         {
           name: "Backlink Generator",
           desc: "Generate high-authority backlinks in entering your domain in minutes",
-          href: "/trending-now-on-google",
+          href: "/backlink-generator",
         },
         {
           name: "Backlink Checker",
           desc: "Analyze the backlinks of your domains",
-          href: "/boost-google-ranking-with-keyword-interest",
+          href: "/backlink-checker",
         },
         {
           name: "Link Building Tool",
@@ -125,9 +159,9 @@ const Navbar = () => {
           href: "/link-building-tool",
         },
         {
-          name: "Top Pages",
-          desc: "Find the top domains linked to your website",
-          href: "/check-top-linking-domain",
+          name: "Guest Post",
+          desc: "See top domains linking to your site for guest posting leads.",
+          href: "/guest-post",
         },
       ],
     },
@@ -138,6 +172,11 @@ const Navbar = () => {
           name: "Keyword Magic Tool",
           desc: "Find the best keywords for SEO success",
           href: "/best-keyword-research-tool",
+        },
+        {
+          name: "Domain Ranking Keyword",
+          desc: "Track keywords of your domain",
+          href: "/keyword-ranking-analyzer",
         },
         {
           name: "Keyword Builder",
@@ -158,17 +197,17 @@ const Navbar = () => {
         {
           name: "Google Analytics",
           desc: "Integrated Google Analytics by connecting your domain.",
-          href: "/best-url-inspection-tool",
+          href: "/google-analytics",
         },
         {
           name: "Google Search Console",
           desc: "Analyze your domain traffic by linking your domain. ",
-          href: "/generate-your-perfect-sitemap-in-seconds-with-our-seobix-tool",
+          href: "/search-console",
         },
         {
           name: "Google Trends",
           desc: "Go with the trends and boost your traffic with SeoBix",
-          href: "/generate-your-perfect-sitemap-in-seconds-with-our-seobix-tool",
+          href: "/trending-now-on-google",
         },
       ],
     },
@@ -249,7 +288,7 @@ const Navbar = () => {
           <Col md={10}>
             <Navbar expand="lg" bg="white" expanded={expanded}>
               <Navbar.Brand as={Link} to="/" style={{ marginRight: "6rem" }}>
-                <img src={logo} alt="Logo" style={{ height: "3rem" }} />
+                {/* <img src={logo} alt="Logo" style={{ height: "3rem" }} /> */}
               </Navbar.Brand>
 
               <Navbar.Toggle
@@ -262,24 +301,51 @@ const Navbar = () => {
                 style={{ overflowX: "hidden" }}
               >
                 <BsNav className="me-auto d-flex align-items-lg-center gap-5">
-                  <div className="dropdown-wrapper" ref={submenuRef}>
-                    <li
-                      className="nav-item dropdown position-static"
-                      onMouseEnter={() => setIsDropdownOpen(true)}
-                      onMouseLeave={() => setIsDropdownOpen(false)}
-                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    >
+                  <div
+                    className="dropdown-wrapper"
+                    ref={submenuRef}
+                    onMouseEnter={handleMenuEnter}
+                    onMouseLeave={handleMenuLeave}
+                  >
+                    <li className="nav-item dropdown position-static">
                       <a
                         className="nav-link"
                         href="#"
                         id="toolsDropdown"
                         role="button"
-                        data-bs-toggle="dropdown"
-                        aria-expanded={isDropdownOpen}
+                        aria-expanded={hoverDropdown === "tools"}
+                        onMouseEnter={() => {
+                          if (window.innerWidth >= 992 && !openedByClick) {
+                            setHoverDropdown("tools");
+                          }
+                        }}
+                        onMouseLeave={() => {
+                          if (window.innerWidth >= 992 && !openedByClick) {
+                            setHoverDropdown(null);
+                          }
+                        }}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          const isOpen = hoverDropdown === "tools";
+                          const isMobile = window.innerWidth < 992;
+
+                          if (isOpen && openedByClick) {
+                            setHoverDropdown(null);
+                            setOpenedByClick(false);
+                          } else {
+                            setHoverDropdown("tools");
+                            setOpenedByClick(true);
+                          }
+
+                          if (isMobile) {
+                            setActiveSubmenu(null);
+                            setActiveChildSubmenu(null);
+                          }
+                        }}
                       >
                         <span
                           className={`d-flex align-items-center gap-1 nav-link-underline ${
-                            isDropdownOpen ? "active-underline" : ""
+                            hoverDropdown === "tools" ? "active" : ""
                           }`}
                         >
                           Tools <MdKeyboardArrowDown size={18} />
@@ -287,8 +353,14 @@ const Navbar = () => {
                       </a>
 
                       <div
-                        className="dropdown-menu mt-0 border-0 "
+                        className={`dropdown-menu mt-0 border-0 ${
+                          hoverDropdown === "tools" && window.innerWidth >= 992
+                            ? "show"
+                            : ""
+                        }`}
                         aria-labelledby="toolsDropdown"
+                        onMouseEnter={handleMenuEnter}
+                        onMouseLeave={handleMenuLeave}
                         style={{
                           borderTopLeftRadius: 0,
                           borderTopRightRadius: 0,
@@ -298,7 +370,7 @@ const Navbar = () => {
                         }}
                       >
                         <Container>
-                          <div className="row">
+                          <div className="row mt-3">
                             {submenuData.map((section, index) => (
                               <div
                                 key={index}
