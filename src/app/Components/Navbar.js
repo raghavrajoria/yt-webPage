@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import logo from "../Images/logo.svg";
+import logo from "../Images/Logo.svg";
 import {
   Button,
   Dropdown,
@@ -288,7 +288,7 @@ const Nav = () => {
           <Col md={10}>
             <Navbar expand="lg" bg="white" expanded={expanded}>
               <Navbar.Brand as={Link} to="/" style={{ marginRight: "6rem" }}>
-                {/* <img src={logo} alt="Logo" style={{ height: "3rem" }} /> */}
+                <img src={logo} alt="Logo" style={{ height: "3rem" }} />
               </Navbar.Brand>
 
               <Navbar.Toggle
