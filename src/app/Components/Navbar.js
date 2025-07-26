@@ -10,7 +10,7 @@ import {
   Row,
   Col,
 } from "react-bootstrap";
-// import helpIcon from "../Images/aivideo1.gif";
+import helpIcon from "../Images/aivideo1.gif";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { MdKeyboardArrowDown } from "react-icons/md";
@@ -247,7 +247,7 @@ const Nav = () => {
             lineHeight: "1.6",
           }}
         >
-          {/* <img
+          <img
             src={helpIcon}
             alt="Help"
             style={{
@@ -256,7 +256,7 @@ const Nav = () => {
               marginRight: "0.5rem",
               marginBottom: "0.5rem",
             }}
-          /> */}
+          />
           <span>
             Inspect Your Website’s SEO Performance in detail with the help of
             Free SeoBix’s Tools
