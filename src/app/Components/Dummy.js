@@ -1,81 +1,84 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-
-import { FaArrowRight } from "react-icons/fa6";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { FaArrowRight, FaEye, FaThumbsUp } from "react-icons/fa6";
 import { BsSearch } from "react-icons/bs";
 
 import Image from "next/image";
-import backgroundGif from "../ImgBlog/backgroundGif.gif";
-import IshwarStoryBg from "../ImgBlog/IshwarStoryBg.png";
+import backgroundGif from "../../public/images/Dummyweb/ImgBlog/backgroundGif.gif";
+import IshwarStoryBg from "../../public/images/Dummyweb/ImgBlog/IshwarStoryBg.png";
 
-import Company1 from "../ImgBlog/Companies1.png";
-import Company2 from "../ImgBlog/Companies2.png";
+import Company1 from "../../public/images/Dummyweb/ImgBlog/Companies1.png";
+import Company2 from "../../public/images/Dummyweb/ImgBlog/Companies2.png";
 
-import instaLogoMain from "../ImgBlog/InstagramMain.png";
-import facebookLogoMain from "../ImgBlog/FacebookMain.png";
-import ytlogo from "../ImgBlog/ytMain.png";
+import instaLogoMain from "../../public/images/Dummyweb/ImgBlog/InstagramMain.png";
+import facebookLogoMain from "../../public/images/Dummyweb/ImgBlog/FacebookMain.png";
+import ytlogo from "../../public/images/Dummyweb/ImgBlog/ytMain.png";
 
-import Hike from "../ImgBlog/HikeYt.jpg";
-import ForestTrek from "../ImgBlog/ForestTrekYt.png";
-import SnowTrek from "../ImgBlog/SnowTrekYt.jpg";
+import Hike from "../../public/images/Dummyweb/ImgBlog/HikeYt.png";
+import ForestTrek from "../../public/images/Dummyweb/ImgBlog/ForestTrekYt.png";
+import SnowTrek from "../../public/images/Dummyweb/ImgBlog/SnowTrekYt.png";
 
-import BlogBg from "../ImgBlog/blogBgMain.jpg";
-import MaxicoBlog from "../ImgBlog/MaxicoMain.png";
-import DubaiBlog from "../ImgBlog/DubaiMain.jpg";
-import BangkokBlog from "../ImgBlog/bangkokMain.jpg";
+import BlogBg from "../../public/images/Dummyweb/ImgBlog/blogBgMain.jpg";
+import MaxicoBlog from "../../public/images/Dummyweb/ImgBlog/MaxicoMain.png";
+import DubaiBlog from "../../public/images/Dummyweb/ImgBlog/DubaiMain.jpg";
+import BangkokBlog from "../../public/images/Dummyweb/ImgBlog/bangkokMain.jpg";
 
-import IndiaImg from "../ImgBlog/IndiaMain.jpg";
-import JapanImg from "../ImgBlog/JapanMain.jpg";
-import BangkokImg from "../ImgBlog/BangkokMainDest.jpg";
-import { FaArrowLeft } from "react-icons/fa";
+import IndiaImg from "../../public/images/Dummyweb/ImgBlog/IndiaMain.jpg";
+import JapanImg from "../../public/images/Dummyweb/ImgBlog/JapanMain.jpg";
+import BangkokImg from "../../public/images/Dummyweb/ImgBlog/BangkokMainDest.jpg";
+import { FaArrowLeft, FaShareAlt } from "react-icons/fa";
+import { MdWatchLater } from "react-icons/md";
 
-import IshwarLogo from "../ImgBlog/IshwarLogo.png";
-import FacebookIconFooter from "../ImgBlog/FacebookIcon.png";
-import linkdinIconFooter from "../ImgBlog/linkdinIcon.png";
-import InstagramIconFooter from "../ImgBlog/InstagramIcon.png";
-import XiconFooter from "../ImgBlog/Xicon.png";
+import IshwarLogo from "../../public/images/Dummyweb/ImgBlog/IshwarLogo.png";
+import FacebookIconFooter from "../../public/images/Dummyweb/ImgBlog/FacebookIcon.png";
+import linkdinIconFooter from "../../public/images/Dummyweb/ImgBlog/linkdinIcon.png";
+import InstagramIconFooter from "../../public/images/Dummyweb/ImgBlog/InstagramIcon.png";
+import XiconFooter from "../../public/images/Dummyweb/ImgBlog/Xicon.png";
 
-import ytPfp from "../ImgBlog/ytImageIcon.jpg";
+import ytPfp from "../../public/images/Dummyweb/ImgBlog/ytImageIcon.jpg";
 
-import DelhiSlider from "../ImgBlog/DelhiSlider.jpg";
-import JaipurSlider from "../ImgBlog/JaipurSlider.jpg";
-import VaranasiSlider from "../ImgBlog/VaranasiSlider.jpg";
+import DelhiSlider from "../../public/images/Dummyweb/ImgBlog/DelhiSlider.jpg";
+import JaipurSlider from "../../public/images/Dummyweb/ImgBlog/JaipurSlider.jpg";
+import VaranasiSlider from "../../public/images/Dummyweb/ImgBlog/VaranasiSlider.jpg";
 
-import BaliSlider from "../ImgBlog/BaliSlider.jpg";
-import islandSlider from "../ImgBlog/islandSlider.jpg";
-import KomdoIsland from "../ImgBlog/KomdoIsland.jpg";
+import BaliSlider from "../../public/images/Dummyweb/ImgBlog/BaliSlider.jpg";
+import islandSlider from "../../public/images/Dummyweb/ImgBlog/islandSlider.jpg";
+import KomdoIsland from "../../public/images/Dummyweb/ImgBlog/KomdoIsland.jpg";
 
-import TokyaSlider from "../ImgBlog/TokyaSlider.jpg";
-import MountFujiSlider from "../ImgBlog/MountFujiSlider.jpg";
-import OsakaSlider from "../ImgBlog/OsakaSlider.jpg";
+import TokyaSlider from "../../public/images/Dummyweb/ImgBlog/TokyaSlider.jpg";
+import MountFujiSlider from "../../public/images/Dummyweb/ImgBlog/MountFujiSlider.jpg";
+import OsakaSlider from "../../public/images/Dummyweb/ImgBlog/OsakaSlider.jpg";
 
-import DubaiDesert from "../ImgBlog/DubaiDesert.jpg";
-import DubSkySlider from "../ImgBlog/DubSkySlider.jpg";
-import DubaiNightSlider from "../ImgBlog/DubaiNightSlider.jpg";
+import DubaiDesert from "../../public/images/Dummyweb/ImgBlog/DubaiDesert.jpg";
+import DubSkySlider from "../../public/images/Dummyweb/ImgBlog/DubSkySlider.jpg";
+import DubaiNightSlider from "../../public/images/Dummyweb/ImgBlog/DubaiNightSlider.jpg";
 
-import JoinCommunity from "../ImgBlog/JoinCommunity.jpg";
-import YtComm from "../ImgBlog/YtComm.png";
-import InstaComm from "../ImgBlog/InstaComm.png";
-import faceBookComm from "../ImgBlog/faceBookComm.png";
-import Xcomm from "../ImgBlog/Xcomm.png";
+import JoinCommunity from "../../public/images/Dummyweb/ImgBlog/JoinCommunity.jpg";
+import YtComm from "../../public/images/Dummyweb/ImgBlog/YtComm.png";
+import InstaComm from "../../public/images/Dummyweb/ImgBlog/InstaComm.png";
+import faceBookComm from "../../public/images/Dummyweb/ImgBlog/faceBookComm.png";
+import Xcomm from "../../public/images/Dummyweb/ImgBlog/Xcomm.png";
 
-import upNextData from "../ImgBlog/data.json";
-import BlogData from "../ImgBlog/data.json";
-import colosseumImg from "../ImgBlog/colosseumImg.jpg";
-import TulumBeachImg from "../ImgBlog/TulumBeachImg.jpg";
-import NusaPenida from "../ImgBlog/NusaPenida.jpg";
-import MountFujiImg from "../ImgBlog/MountFujiImg.jpg";
-import DubaiDesertImg from "../ImgBlog/DubaiDesertImg.jpg";
-import RoyalJaipur from "../ImgBlog/RoyalJaipur.jpg";
-import IslandView from "../ImgBlog/IslandView.jpg";
-import BaliImg from "../ImgBlog/BaliImg.jpg";
+import upNextData from "../../public/images/Dummyweb/ImgBlog/data.json";
+import BlogData from "../../public/images/Dummyweb/ImgBlog/data.json";
+import colosseumImg from "../../public/images/Dummyweb/ImgBlog/colosseumImg.jpg";
+import TulumBeachImg from "../../public/images/Dummyweb/ImgBlog/TulumBeachImg.jpg";
+import NusaPenida from "../../public/images/Dummyweb/ImgBlog/NusaPenida.jpg";
+import MountFujiImg from "../../public/images/Dummyweb/ImgBlog/MountFujiImg.jpg";
+import DubaiDesertImg from "../../public/images/Dummyweb/ImgBlog/DubaiDesertImg.jpg";
+import RoyalJaipur from "../../public/images/Dummyweb/ImgBlog/RoyalJaipur.jpg";
+import IslandView from "../../public/images/Dummyweb/ImgBlog/IslandView.jpg";
+import BaliImg from "../../public/images/Dummyweb/ImgBlog/BaliImg.jpg";
 import { GoShareAndroid } from "react-icons/go";
 import { IoEyeOutline } from "react-icons/io5";
 
-import DelhiPost from "../ImgBlog/DelhiPost.jpg";
-import JaipurPost from "../ImgBlog/JaiputPost.jpg";
-import VaranasiPost from "../ImgBlog/VaranashiPost.jpg";
+import DelhiPost from "../../public/images/Dummyweb/ImgBlog/DelhiPost.jpg";
+import JaipurPost from "../../public/images/Dummyweb/ImgBlog/JaiputPost.jpg";
+import VaranasiPost from "../../public/images/Dummyweb/ImgBlog/VaranashiPost.jpg";
+import SidebarLayout from "../../components/SidebarLayout";
+import { Col, Row } from "react-bootstrap";
 
 const Traveler = () => {
   useEffect(() => {
@@ -113,8 +116,6 @@ const Traveler = () => {
   );
 };
 
-export default Traveler;
-
 const TravelNav = () => {
   useEffect(() => {
     import("bootstrap/dist/js/bootstrap.bundle.min.js");
@@ -122,21 +123,22 @@ const TravelNav = () => {
   return (
     <div className="container-fluid px-0">
       {/* navbar */}
-      <div className="row g-0">
-        <div
-          className="col-md-1 d-none d-lg-block"
-          style={{ backgroundColor: "#008CA7" }}
-        ></div>
+      <div className="row g-0" style={{ backgroundColor: "#008ca7" }}>
+        <div className="col-md-1 d-none d-lg-block"></div>
 
         <div className="col-12 col-lg-10">
           <nav
             className="navbar navbar-expand-lg navbar-dark"
-            style={{ backgroundColor: "#008CA7" }}
+            style={{ backgroundColor: "#008ca7" }}
           >
             <div className="container-fluid">
-              <Image src={IshwarLogo} alt="" />
-              <a className="navbar-brand fw-bold">Ishwaar</a>
-
+              <Image
+                src={IshwarLogo}
+                alt="Ishwaar Logo"
+                style={{ width: "4rem" }}
+              />{" "}
+              &nbsp;
+              <a style={{ color: "#fff", fontSize: "2rem" }}>Ishwaar</a>
               <button
                 className="navbar-toggler"
                 type="button"
@@ -145,31 +147,30 @@ const TravelNav = () => {
               >
                 <span className="navbar-toggler-icon"></span>
               </button>
-
               <div
                 className="collapse navbar-collapse justify-content-center"
                 id="navbarNav"
               >
                 <ul className="navbar-nav align-items-center">
                   <li className="nav-item">
-                    <Link href="/videos" className="nav-link text-white">
-                      VIDEOS
-                    </Link>
+                    <a href="/podcast" className="nav-link text-white">
+                      Videos
+                    </a>
                   </li>
                   <li className="nav-item">
-                    <Link href="/blogs" className="nav-link text-white">
-                      BLOGS
-                    </Link>
+                    <a href="/guest" className="nav-link text-white">
+                      Blogs
+                    </a>
                   </li>
                   <li className="nav-item">
-                    <Link href="/blogs" className="nav-link text-white">
-                      DESTINATION
-                    </Link>
+                    <a href="/about" className="nav-link text-white">
+                      Destination
+                    </a>
                   </li>
                   <li className="nav-item">
-                    <Link href="/main" className="nav-link text-white">
-                      ABOUT
-                    </Link>
+                    <a href="/about" className="nav-link text-white">
+                      About
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -178,9 +179,9 @@ const TravelNav = () => {
                   <li className="nav-item ms-2">
                     <button
                       className="btn btn-light rounded-pill"
-                      style={{ color: "#008CA7" }}
+                      style={{ color: "#028174" }}
                     >
-                      SUBSCRIBE
+                      Subscribe
                     </button>
                   </li>
                 </ul>
@@ -191,7 +192,7 @@ const TravelNav = () => {
 
         <div
           className="col-md-1 d-none d-md-block"
-          style={{ backgroundColor: "#008CA7" }}
+          style={{ backgroundColor: "#008ca7" }}
         ></div>
       </div>
     </div>
@@ -218,6 +219,7 @@ const MainPage = ({ setActivePage }) => {
     const cardWidth = card.offsetWidth + 40;
     ref.current.scrollBy({ left: direction * cardWidth, behavior: "smooth" });
   };
+
   return (
     <div>
       {/* Adventures worth sharing  */}
@@ -323,6 +325,7 @@ const MainPage = ({ setActivePage }) => {
                   fontWeight: "400",
                   lineHeight: "45px",
                   fontSize: "28px",
+                  color: "#fff",
                 }}
               >
                 Join me, a passionate traveler documenting experiences from
@@ -341,7 +344,55 @@ const MainPage = ({ setActivePage }) => {
         </div>
       </div>
       {/* Companies */}
-      <InfinitySlider />
+      <div className="container-fluid mt-4 mb-4">
+        <div className="row align-items-center">
+          <div className="col-md-1 d-none d-lg-block"></div>
+
+          <div className="col-12 col-lg-10">
+            <div className="scroll-wrapper">
+              <div className="scroll-content">
+                {/* Duplicate images for seamless looping */}
+                {[...Array(2)].flatMap(() => [
+                  <Image src={Company1} alt="Company 1" key={Math.random()} />,
+                  <Image src={Company2} alt="Company 2" key={Math.random()} />,
+                ])}
+              </div>
+            </div>
+          </div>
+
+          <div className="col-md-1 d-none d-lg-block"></div>
+        </div>
+
+        <style>{`
+    .scroll-wrapper {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
+
+    .scroll-content {
+      display: flex;
+      gap: 40px;
+      animation: scroll-left 30s linear infinite;
+      width: max-content;
+    }
+
+    .scroll-content img {
+      height: 60px;
+      width: auto;
+    }
+
+    @keyframes scroll-left {
+      from {
+        transform: translateX(0%);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+  `}</style>
+      </div>
+
       {/* storyteller */}
       <div
         className="overflowx-hidden"
@@ -414,21 +465,21 @@ const MainPage = ({ setActivePage }) => {
                   through my side.
                 </p>
                 <div className="d-flex justify-content-around">
-                  <button className="btn p-0 border-0 bg-transparent">
+                  <button className="btn p-0 border-0 bg-transparent mx-2">
                     <Image
                       src={ytlogo}
                       alt="YouTube"
                       style={{ height: "3.2rem", width: "auto" }}
                     />
                   </button>
-                  <button className="btn p-0 border-0 bg-transparent">
+                  <button className="btn p-0 border-0 bg-transparent mx-2">
                     <Image
                       src={instaLogoMain}
                       alt="Instagram"
                       style={{ height: "3.2rem", width: "auto" }}
                     />
                   </button>
-                  <button className="btn p-0 border-0 bg-transparent">
+                  <button className="btn p-0 border-0 bg-transparent mx-2">
                     <Image
                       src={facebookLogoMain}
                       alt="Facebook"
@@ -444,9 +495,10 @@ const MainPage = ({ setActivePage }) => {
         </div>
       </div>
       {/* enjoy stories container  */}
-      <div className="container mb-5">
+      <div className=" m-5">
         <div className="d-flex justify-content-between align-items-center mb-4">
           <h2
+            className="mx-4"
             style={{ color: "#008CA7", fontSize: "36px", lineHeight: "48px" }}
           >
             Enjoy stories that spark your wanderlust and fuel <br /> your sense
@@ -469,32 +521,42 @@ const MainPage = ({ setActivePage }) => {
 
         <div className="row">
           {/* Left column: Snow + Mountain */}
-          <div className="col-md-4 d-flex flex-column gap-4">
-            <div className="position-relative">
+          <div className="col-md-5 d-flex flex-column align-items-center">
+            <div className="mb-3" style={{ padding: "0 3rem" }}>
               <Image
                 src={SnowTrek}
                 alt="SnowTreckImg"
-                className="img-fluid rounded"
-                style={{ height: "21rem", width: "31rem" }}
+                style={{
+                  height: "19rem",
+                  width: "100%",
+                  borderRadius: "12px",
+                  objectFit: "cover",
+                }}
               />
             </div>
-            <div className="position-relative">
+
+            {/* Bottom image — full width and larger */}
+            <div className="w-100 px-4">
               <Image
                 src={Hike}
                 alt="HikeImg"
-                className="img-fluid rounded"
-                style={{ height: "24rem", width: "36rem" }}
+                style={{
+                  height: "24rem",
+                  width: "100%",
+                  borderRadius: "12px",
+                  objectFit: "cover",
+                }}
               />
             </div>
           </div>
 
-          <div className="col-md-6" style={{ width: "fit-content" }}>
+          <div className="col-md-5" style={{ width: "fit-content" }}>
             <h2
+              className="text-center"
               style={{
                 color: "#E6E6E6",
-                fontSize: "5rem",
+                fontSize: "6rem",
                 fontWeight: "1000",
-                fontStretch: "expanded",
               }}
             >
               YouTube
@@ -504,7 +566,11 @@ const MainPage = ({ setActivePage }) => {
                 src={ForestTrek}
                 alt="SnowTreckImg"
                 className="img-fluid rounded"
-                style={{ height: "34rem", width: "49rem" }}
+                style={{
+                  height: "34rem",
+                  width: "49rem",
+                  borderRadius: "15px",
+                }}
               />
             </div>
           </div>
@@ -512,256 +578,356 @@ const MainPage = ({ setActivePage }) => {
       </div>
       {/* Blogs Container */}
       <div
-        className="overflowx-hidden"
+        className="position-relative"
         style={{
-          backgroundImage: `url(${BlogBg.src})`,
-          marginBottom: "3.5rem",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
+          //   marginBottom: "3.5rem",
           minHeight: "100vh",
           width: "100%",
           overflowX: "hidden",
         }}
       >
-        <div className="container-fluid py-5" style={{ minHeight: "100vh" }}>
-          <div className="row justify-content-center">
-            <div className="col-12 text-center">
-              <h2
-                style={{
-                  fontWeight: 900,
-                  fontSize: "5rem",
-                  color: "#E6E6E6",
-                  letterSpacing: "2px",
-                  marginBottom: "1.5rem",
-                  textShadow: "0 2px 8px rgba(0,0,0,0.15)",
-                }}
-              >
-                BLOGS
-              </h2>
-            </div>
-          </div>
-          <div className="row align-items-center mb-4">
-            <div className="col-12 col-md-6">
-              <h4
-                style={{
-                  color: "#fff",
-                  fontWeight: 400,
-                  fontSize: "3rem",
-                  marginLeft: "2vw",
-                  marginBottom: 0,
-                }}
-              >
-                Stories from the Road
-              </h4>
-            </div>
-            <div className="col-12 col-md-6 text-md-end mt-3 mt-md-0">
-              <button
-                className="btn btn-outline-light rounded-pill px-4"
-                style={{
-                  fontWeight: 500,
-                  fontSize: "1.2rem",
-                  border: "2px solid #fff",
-                  background: "rgba(255,255,255,0.05)",
-                }}
-                onClick={() => setActivePage("blogs")}
-              >
-                View All &rarr;
-              </button>
-            </div>
-          </div>
-          <div className="row justify-content-center g-4">
-            {/* Blog Card 1 */}
-            <div className="col-12 col-md-4 d-flex justify-content-center">
-              <div
-                style={{
-                  cursor: "pointer",
-                  position: "relative",
-                  borderRadius: "20px",
-                  overflow: "hidden",
-                  width: "100%",
-                  maxWidth: "370px",
-                  boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
-                }}
-              >
-                <Image
-                  src={MaxicoBlog}
-                  alt="Mexico"
-                  style={{
-                    width: "100%",
-                    height: "32rem",
-                    objectFit: "cover",
-                  }}
-                />
-                <div
-                  style={{
-                    position: "absolute",
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    padding: "1.2rem",
-                    background:
-                      "linear-gradient(0deg,rgba(0,0,0,0.7),rgba(0,0,0,0.1) 70%,transparent)",
-                    color: "#fff",
-                  }}
-                >
-                  <h5 style={{ fontWeight: 700, marginBottom: "0.5rem" }}>
-                    Mexico
-                  </h5>
-                  <p style={{ fontWeight: 400, fontSize: "1rem", margin: 0 }}>
-                    Mexico City is a vibrant feast for the senses and a haven
-                    for food lovers.
-                  </p>
-                </div>
-              </div>
-            </div>
-            {/* Blog Card 2 */}
-            <div className="col-12 col-md-4 d-flex justify-content-center">
-              <div
-                style={{
-                  cursor: "pointer",
-                  position: "relative",
-                  borderRadius: "20px",
-                  overflow: "hidden",
-                  width: "100%",
-                  maxWidth: "370px",
-                  boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
-                }}
-              >
-                <Image
-                  src={DubaiBlog}
-                  alt="Dubai  "
-                  style={{
-                    width: "100%",
-                    height: "32rem",
-                    objectFit: "cover",
-                  }}
-                />
-                <div
-                  style={{
-                    position: "absolute",
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    padding: "1.2rem",
-                    background:
-                      "linear-gradient(0deg,rgba(0,0,0,0.7),rgba(0,0,0,0.1) 70%,transparent)",
-                    color: "#fff",
-                  }}
-                >
-                  <h5 style={{ fontWeight: 700, marginBottom: "0.5rem" }}>
-                    Bangkok
-                  </h5>
-                  <p style={{ fontWeight: 400, fontSize: "1rem", margin: 0 }}>
-                    If food is your reason to travel, this Bangkok guide is your
-                    ultimate flavor-paradise.
-                  </p>
-                </div>
-              </div>
-            </div>
-            {/* Blog Card 3 */}
+        {/* Background Image */}
+        <div
+          style={{
+            backgroundImage: `url(${BlogBg.src})`,
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 0,
+          }}
+        ></div>
 
-            <div className="col-12 col-md-4 d-flex justify-content-center">
-              <div
-                style={{
-                  cursor: "pointer",
-                  position: "relative",
-                  borderRadius: "20px",
-                  overflow: "hidden",
-                  width: "100%",
-                  maxWidth: "370px",
-                  boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
-                }}
-              >
-                <Image
-                  src={BangkokBlog}
-                  alt="Bangkok"
-                  style={{
-                    width: "100%",
-                    height: "32rem",
-                    objectFit: "cover",
-                  }}
-                />
-                <div
-                  style={{
-                    position: "absolute",
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    padding: "1.2rem",
-                    background:
-                      "linear-gradient(0deg,rgba(0,0,0,0.7),rgba(0,0,0,0.1) 70%,transparent)",
-                    color: "#fff",
-                  }}
-                >
-                  <h5 style={{ fontWeight: 700, marginBottom: "0.5rem" }}>
-                    Bangkok
-                  </h5>
-                  <p style={{ fontWeight: 400, fontSize: "1rem", margin: 0 }}>
-                    If food is your reason to travel, this Bangkok guide is your
-                    ultimate flavor-paradise.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* destination container */}
-      <div className="container-fluid py-5">
-        <div className="row text-center">
-          <div className="col-md-1 d-none d-md-block"></div>
-          <div className="col-md-10">
-            <h2
-              style={{
-                fontWeight: 900,
-                fontSize: "6vw",
-                color: "#E6E6E6",
-                letterSpacing: "2px",
-                marginBottom: "1.5rem",
-              }}
+        {/* White transparent overlay */}
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(255, 255, 255, 0.3)", // soft white overlay
+            zIndex: 0.5,
+          }}
+        ></div>
+
+        {/* Foreground content */}
+        <Row className="d-flex justify-content-center">
+          <Col md={10}>
+            <div
+              className="container-fluid py-5 position-relative"
+              style={{ minHeight: "100vh", zIndex: 1 }}
             >
-              DESTINATIONS
-            </h2>
+              <div className="row justify-content-center">
+                <div className="col-12 text-center">
+                  <h2
+                    style={{
+                      fontWeight: 900,
+                      fontSize: "5rem",
+                      color: "#E6E6E6",
+                      letterSpacing: "2px",
+                      marginBottom: "1.5rem",
+                      textShadow: "0 2px 8px rgba(0,0,0,0.15)",
+                    }}
+                  >
+                    BLOGS
+                  </h2>
+                </div>
+              </div>
 
-            <div className="row g-4">
-              <div className="col-12 col-md-4">
-                <h3
-                  className=" mt-5"
-                  style={{ color: "#008CA7", fontSize: "2.2rem" }}
-                >
-                  Here Are the Places I've Been So Far
-                </h3>
-                <div className=" mb-4 ">
-                  <button
-                    onClick={() => scrollByCard(destinationRef, -1)}
-                    className="btn btn-outline-primary rounded-circle me-2"
+              <div className="row align-items-center mb-4">
+                <div className="col-12 col-md-6">
+                  <h4
+                    style={{
+                      color: "#fff",
+                      fontWeight: 400,
+                      fontSize: "3rem",
+                      marginBottom: 0,
+                    }}
                   >
-                    <FaArrowLeft />
-                  </button>
+                    Stories from the Road
+                  </h4>
+                </div>
+                <div className="col-12 col-md-6 text-md-end mt-3 mt-md-0">
                   <button
-                    onClick={() => scrollByCard(destinationRef, 1)}
-                    className="btn btn-outline-primary rounded-circle"
+                    className="btn btn-outline-light rounded-pill px-4"
+                    style={{
+                      fontWeight: 500,
+                      fontSize: "1.2rem",
+                      border: "2px solid #fff",
+                      background: "rgba(255,255,255,0.05)",
+                    }}
+                    onClick={() => setActivePage("blogs")}
                   >
-                    <FaArrowRight />
+                    View All &rarr;
                   </button>
                 </div>
               </div>
-              <div className="col-12 col-md-8">
-                <SliderSection1
-                  title="destination"
-                  images={destination}
-                  containerRef={destinationRef}
-                />
+
+              <div className="row justify-content-center g-4">
+                {/* Blog Card 1 */}
+                <div className="col-12 col-md-4 d-flex justify-content-center">
+                  <div
+                    style={{
+                      cursor: "pointer",
+                      position: "relative",
+                      borderRadius: "20px",
+                      overflow: "hidden",
+                      width: "100%",
+                      maxWidth: "370px",
+                      boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
+                    }}
+                  >
+                    <Image
+                      src={MaxicoBlog}
+                      alt="Mexico"
+                      style={{
+                        width: "100%",
+                        height: "32rem",
+                        objectFit: "cover",
+                      }}
+                    />
+                    <div
+                      style={{
+                        position: "absolute",
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        padding: "1.2rem",
+                        background:
+                          "linear-gradient(0deg,rgba(0,0,0,0.7),rgba(0,0,0,0.1) 70%,transparent)",
+                        color: "#fff",
+                      }}
+                    >
+                      <h5 style={{ fontWeight: 700, marginBottom: "0.5rem" }}>
+                        Mexico
+                      </h5>
+                      <p
+                        style={{
+                          fontWeight: 400,
+                          fontSize: "1rem",
+                          margin: 0,
+                          color: "#fff",
+                        }}
+                      >
+                        Mexico City is a vibrant feast for the senses and a
+                        haven for food lovers.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Blog Card 2 */}
+                <div className="col-12 col-md-4 d-flex justify-content-center">
+                  <div
+                    style={{
+                      position: "relative",
+                      width: "100%",
+                      maxWidth: "370px",
+                      height: "32rem",
+                      borderRadius: "20px",
+                      overflow: "hidden",
+                      boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
+                    }}
+                  >
+                    <Image
+                      src={DubaiBlog}
+                      alt="Dubai"
+                      layout="fill"
+                      objectFit="cover"
+                    />
+
+                    <div
+                      style={{
+                        position: "absolute",
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        padding: "1.2rem",
+                        background:
+                          "linear-gradient(0deg, rgba(0,0,0,0.7), rgba(0,0,0,0.1) 70%, transparent)",
+                        color: "#fff",
+                      }}
+                    >
+                      <h5 style={{ fontWeight: 700, marginBottom: "0.5rem" }}>
+                        Dubai
+                      </h5>
+                      <p
+                        style={{
+                          fontWeight: 400,
+                          fontSize: "1rem",
+                          margin: 0,
+                          color: "#fff",
+                        }}
+                      >
+                        Dubai rises from the desert as a city of innovation and
+                        limitless ambition.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Blog Card 3 */}
+                <div className="col-12 col-md-4 d-flex justify-content-center">
+                  <div
+                    style={{
+                      cursor: "pointer",
+                      position: "relative",
+                      borderRadius: "20px",
+                      overflow: "hidden",
+                      width: "100%",
+                      maxWidth: "370px",
+                      boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
+                    }}
+                  >
+                    <Image
+                      src={BangkokBlog}
+                      alt="Bangkok"
+                      style={{
+                        width: "100%",
+                        height: "32rem",
+                        objectFit: "cover",
+                      }}
+                    />
+                    <div
+                      style={{
+                        position: "absolute",
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        padding: "1.2rem",
+                        background:
+                          "linear-gradient(0deg,rgba(0,0,0,0.7),rgba(0,0,0,0.1) 70%,transparent)",
+                        color: "#fff",
+                      }}
+                    >
+                      <h5 style={{ fontWeight: 700, marginBottom: "0.5rem" }}>
+                        Bangkok
+                      </h5>
+                      <p
+                        style={{
+                          fontWeight: 400,
+                          fontSize: "1rem",
+                          margin: 0,
+                          color: "#fff",
+                        }}
+                      >
+                        If food is your reason to travel, this Bangkok guide is
+                        your ultimate flavor-paradise.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="col-md-1 d-none d-md-block"></div>
-        </div>
+          </Col>
+        </Row>
       </div>
+
+      {/* destination container */}
+      <Row
+        className="d-flex justify-content-center"
+        style={{ background: "#fff" }}
+      >
+        <Col md={10} className="mt-5 mb-5">
+          <h2
+            className="text-center"
+            style={{
+              fontWeight: 900,
+              fontSize: "6vw",
+              color: "#E6E6E6",
+              letterSpacing: "2px",
+              marginBottom: "1.5rem",
+            }}
+          >
+            DESTINATIONS
+          </h2>
+
+          <div className="row g-4 mb-5">
+            <div className="col-12 col-md-4">
+              <h3
+                className=" mt-5"
+                style={{ color: "#008CA7", fontSize: "2.2rem" }}
+              >
+                Here Are the Places I've Been So Far
+              </h3>
+              <div className=" mb-4 ">
+                <button
+                  onClick={() => scrollByCard(destinationRef, -1)}
+                  className="btn btn-outline-primary rounded-circle me-2"
+                >
+                  <FaArrowLeft />
+                </button>
+                <button
+                  onClick={() => scrollByCard(destinationRef, 1)}
+                  className="btn btn-outline-primary rounded-circle"
+                >
+                  <FaArrowRight />
+                </button>
+              </div>
+            </div>
+            <div className="col-12 col-md-8">
+              <SliderSection1
+                title="destination"
+                images={destination}
+                containerRef={destinationRef}
+              />
+            </div>
+          </div>
+        </Col>
+      </Row>
     </div>
   );
 };
+function SliderSection1({ images, containerRef }) {
+  return (
+    <div className="mt-3">
+      <div
+        className="d-flex"
+        style={{
+          overflowX: "auto",
+          scrollbarWidth: "none",
+          gap: "40px",
+          padding: "10px 0",
+        }}
+        ref={containerRef}
+      >
+        {(images ?? []).map((img, index) => (
+          <div
+            key={index}
+            style={{ flex: "0 0 auto", width: "300px", position: "relative" }}
+          >
+            <img
+              src={img}
+              className="w-100 rounded"
+              alt={`Slide ${index + 1}`}
+              style={{
+                objectFit: "cover",
+                height: "274px",
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                bottom: "10px",
+                left: "10px",
+                color: "#fff",
+                padding: "4px 8px",
+                borderRadius: "6px",
+              }}
+            >
+              <h6> Slide {index + 1}</h6>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 const TravelVid = () => {
   const [videoSrc, setVideoSrc] = useState("./videoplayback.mp4");
@@ -957,11 +1123,9 @@ const TravelVid = () => {
 
   return (
     <>
-      <div>
-        <div className="container">
-          <div className="row">
-            <div className="col-md-1"></div>
-
+      <div style={{ background: "#fff" }}>
+        <Row className="d-flex justify-content-center">
+          <Col md={10}>
             <h2
               className="text-center"
               style={{
@@ -1027,13 +1191,14 @@ const TravelVid = () => {
                       <Image
                         src={ytPfp}
                         alt="Host"
+                        width={40}
+                        height={40}
                         style={{
-                          width: "3rem",
-                          height: "3rem",
                           borderRadius: "50%",
                           marginRight: "10px",
                         }}
-                      />
+                      />{" "}
+                      &nbsp; &nbsp;
                       <div>
                         <div style={{ fontWeight: "bold" }}>Ishwaar</div>
                         <div style={{ fontSize: "12px", color: "gray" }}>
@@ -1050,17 +1215,61 @@ const TravelVid = () => {
                         flexWrap: "wrap",
                       }}
                     >
-                      <button className="btn btn-outline-success rounded-pill">
-                        🔗 Share
+                      <button
+                        className="btn"
+                        style={{
+                          border: "2px solid #008ca7",
+                          color: "#008ca7",
+                          borderRadius: "1rem",
+                        }}
+                      >
+                        <FaShareAlt
+                          className="mx-2"
+                          style={{ color: "#008ca7", fontSize: "1.2rem" }}
+                        />
+                        Share
                       </button>
-                      <button className="btn btn-outline-success">
-                        👍 35K
+                      <button
+                        className="btn"
+                        style={{
+                          border: "2px solid #008ca7",
+                          color: "#008ca7",
+                          borderRadius: "1rem",
+                        }}
+                      >
+                        <FaThumbsUp
+                          className="mx-2"
+                          style={{ color: "#008ca7", fontSize: "1.2rem" }}
+                        />
+                        35K
                       </button>
-                      <button className="btn btn-outline-success">
-                        👁️ 50K views
+                      <button
+                        className="btn"
+                        style={{
+                          border: "2px solid #008ca7",
+                          color: "#008ca7",
+                          borderRadius: "1rem",
+                        }}
+                      >
+                        <FaEye
+                          className="mx-2"
+                          style={{ color: "#008ca7", fontSize: "1.2rem" }}
+                        />
+                        50K views
                       </button>
-                      <button className="btn btn-outline-success">
-                        🕒 2 hours ago
+                      <button
+                        className="btn"
+                        style={{
+                          border: "2px solid #008ca7",
+                          color: "#008ca7",
+                          borderRadius: "1rem",
+                        }}
+                      >
+                        <MdWatchLater
+                          className="mx-2"
+                          style={{ color: "#008ca7", fontSize: "1.4rem" }}
+                        />
+                        2 hours ago
                       </button>
                     </div>
                   </div>
@@ -1110,7 +1319,7 @@ const TravelVid = () => {
 
                   <div
                     style={{
-                      maxHeight: "calc(100vh - 200px)",
+                      maxHeight: "50vh",
                       overflowY: "auto",
                       paddingRight: "10px",
                     }}
@@ -1125,38 +1334,46 @@ const TravelVid = () => {
                           cursor: "pointer",
                         }}
                       >
-                        <Image
-                          src={imageMap[item.image]}
-                          alt="Thumbnail"
-                          style={{
-                            width: "168px",
-                            height: "94px",
-                            borderRadius: "4px",
-                            minWidth: "168px",
-                          }}
-                        />{" "}
-                        <div style={{ marginLeft: "10px", overflow: "hidden" }}>
-                          <div
-                            style={{
-                              fontWeight: "bold",
-                              fontSize: "14px",
-                              marginBottom: "4px",
-                              display: "-webkit-box",
-                              WebkitLineClamp: 2,
-                              WebkitBoxOrient: "vertical",
-                              overflow: "hidden",
-                              textOverflow: "ellipsis",
-                            }}
-                          >
-                            {item.title}
-                          </div>
-                          <div style={{ fontSize: "12px", color: "gray" }}>
-                            {item.author}
-                          </div>
-                          <div style={{ fontSize: "12px", color: "gray" }}>
-                            {item.views} • {item.date}
-                          </div>
-                        </div>
+                        <Row>
+                          <Col md={5}>
+                            {" "}
+                            <Image
+                              src={imageMap[item.image]}
+                              alt="Thumbnail"
+                              style={{
+                                objectFit: "cover",
+                                borderRadius: "4px",
+                              }}
+                            />
+                          </Col>
+                          <Col>
+                            {" "}
+                            <div
+                              style={{ marginLeft: "10px", overflow: "hidden" }}
+                            >
+                              <div
+                                style={{
+                                  fontWeight: "bold",
+                                  fontSize: "14px",
+                                  marginBottom: "4px",
+                                  display: "-webkit-box",
+                                  WebkitLineClamp: 2,
+                                  WebkitBoxOrient: "vertical",
+                                  overflow: "hidden",
+                                  textOverflow: "ellipsis",
+                                }}
+                              >
+                                {item.title}
+                              </div>
+                              <div style={{ fontSize: "12px", color: "gray" }}>
+                                {item.author}
+                              </div>
+                              <div style={{ fontSize: "12px", color: "gray" }}>
+                                {item.views} • {item.date}
+                              </div>
+                            </div>
+                          </Col>
+                        </Row>
                       </div>
                     ))}
                   </div>
@@ -1270,8 +1487,9 @@ const TravelVid = () => {
 
               <div className="col-md-1"></div>
             </div>
-          </div>
-        </div>
+          </Col>
+        </Row>
+
         {/* Join Community  */}
         <div
           className="overflow-x-hidden"
@@ -1279,18 +1497,17 @@ const TravelVid = () => {
             marginTop: "3rem",
             backgroundImage: `url(${JoinCommunity.src})`,
             backgroundColor: "#E8E8E8",
-
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
-            minHeight: "100vh",
+            minHeight: "60vh",
             width: "100%",
           }}
         >
           <div className="container-fluid">
             <div
               className="row align-items-center"
-              style={{ minHeight: "100vh" }}
+              style={{ minHeight: "80vh" }}
             >
               <div className="col-md-1 d-none d-lg-block"></div>
 
@@ -1307,8 +1524,7 @@ const TravelVid = () => {
                     border: "2px",
                   }}
                 >
-                  Join <br />
-                  Community
+                  Join Community
                 </h2>
 
                 <div
@@ -1316,7 +1532,7 @@ const TravelVid = () => {
                   style={{
                     backgroundColor: "#ffffff",
                     borderRadius: "16px",
-                    maxWidth: "500px",
+                    maxWidth: "20vw",
                     boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
                   }}
                 >
@@ -1357,46 +1573,7 @@ const TravelVid = () => {
     </>
   );
 };
-function SliderSection1({ images, containerRef }) {
-  return (
-    <div className="mt-3">
-      <div
-        className="d-flex"
-        style={{
-          overflowX: "auto",
-          scrollbarWidth: "none",
-          gap: "40px",
-          padding: "10px 0",
-        }}
-        ref={containerRef}
-      >
-        {(images ?? []).map((img, index) => (
-          <div key={index} style={{ flex: "0 0 auto", width: "300px" }}>
-            <img
-              src={img}
-              className="w-100 rounded"
-              alt={`Slide ${index + 1}`}
-              style={{
-                objectFit: "cover",
-                height: "274px",
-              }}
-            />
-            <h5
-              className="text-start"
-              style={{
-                marginTop: "-35px",
-                color: "#fff",
-                marginLeft: "10px",
-              }}
-            >
-              India
-            </h5>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+
 function SliderSection({ images, containerRef }) {
   return (
     <div className="mt-3">
@@ -1835,109 +2012,87 @@ const TravelFooter = () => {
     import("bootstrap/dist/js/bootstrap.bundle.min.js");
   }, []);
   return (
-    <div>
-      <footer
-        style={{ background: "#008CA7", color: "white", padding: "2rem 0 0 0" }}
-      >
-        <div className="container">
-          <div className="d-flex flex-column flex-md-row justify-content-between align-items-center gap-4 pb-3">
-            {/* Logo */}
-            <div className="d-flex align-items-center gap-2">
+    <footer
+      style={{
+        background: "#008ca7",
+        color: "white",
+        padding: "2rem 0",
+      }}
+    >
+      <Row className="d-flex justify-content-center">
+        <Col md={10}>
+          <div className="row " style={{ justifyContent: "space-between" }}>
+            <div className="col-12 col-md-4 d-flex justify-content-center justify-content-md-start align-items-center gap-2 mb-3 mb-md-0">
               <Image
                 src={IshwarLogo}
                 alt="Ishwaar Logo"
                 style={{ height: "40px" }}
               />
-              <span style={{ fontWeight: "bold", fontSize: "2rem" }}>
+              <span
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "2rem",
+                  fontFamily: "Montserrat",
+                }}
+              >
                 Ishwaar
               </span>
             </div>
 
-            {/* Nav */}
-            <nav
-              className="d-flex flex-wrap justify-content-center gap-4"
-              style={{ fontSize: "1.3rem" }}
-            >
+            <nav className="col-12 col-md-4 d-flex justify-content-center gap-4 mb-3 mb-md-0">
               <a href="#" style={{ color: "white", textDecoration: "none" }}>
-                VIDEOS
+                Videos
               </a>
               <a href="#" style={{ color: "white", textDecoration: "none" }}>
-                BLOG
+                Blog
               </a>
               <a href="#" style={{ color: "white", textDecoration: "none" }}>
-                DESTINATIONS
+                Destination
               </a>
               <a href="#" style={{ color: "white", textDecoration: "none" }}>
-                ABOUT
+                About
               </a>
             </nav>
-
-            {/* Socials */}
-            <div className="d-flex gap-3 justify-content-center">
-              <a href="#" style={{ color: "white" }}>
-                <Image
-                  src={FacebookIconFooter}
-                  alt="Facebook"
-                  style={{
-                    height: "32px",
-                    borderRadius: "50%",
-                    background: "white",
-                    padding: "4px",
-                  }}
-                />
-              </a>
-              <a href="#" style={{ color: "white" }}>
-                <Image
-                  src={linkdinIconFooter}
-                  alt="LinkedIn"
-                  style={{
-                    height: "32px",
-                    borderRadius: "50%",
-                    background: "white",
-                    padding: "4px",
-                  }}
-                />
-              </a>
-              <a href="#" style={{ color: "white" }}>
-                <Image
-                  src={InstagramIconFooter}
-                  alt="Instagram"
-                  style={{
-                    height: "32px",
-                    borderRadius: "50%",
-                    background: "white",
-                    padding: "4px",
-                  }}
-                />
-              </a>
-              <a href="#" style={{ color: "white" }}>
-                <Image
-                  src={XiconFooter}
-                  alt="X"
-                  style={{
-                    height: "32px",
-                    borderRadius: "50%",
-                    background: "white",
-                    padding: "4px",
-                  }}
-                />
-              </a>
+            <div className="col-12 col-md-4 d-flex justify-content-center justify-content-md-end gap-3">
+              {[
+                FacebookIconFooter,
+                linkdinIconFooter,
+                InstagramIconFooter,
+                XiconFooter,
+              ].map((icon, i) => (
+                <a key={i} href="#" style={{ color: "white" }}>
+                  <Image
+                    src={icon}
+                    alt={`icon-${i}`}
+                    style={{
+                      height: "32px",
+                      width: "32px",
+                      borderRadius: "50%",
+                      background: "white",
+                      padding: "4px",
+                    }}
+                  />
+                </a>
+              ))}
             </div>
           </div>
+        </Col>
+      </Row>
+      <hr style={{ borderColor: "white", opacity: 0.5, marginTop: "1rem" }} />
 
-          <hr style={{ borderColor: "white", opacity: 0.7 }} />
-          <div className="text-center pb-3" style={{ fontSize: "1.3rem" }}>
-            2024 © Ishwaar.com All rights reserved.
-          </div>
-        </div>
-      </footer>
-    </div>
+      <div
+        className="text-center"
+        style={{ fontSize: "1.1rem", fontWeight: "400", marginTop: "1rem" }}
+      >
+        2024 © Ishwaar.com All rights reserved.
+      </div>
+    </footer>
   );
 };
 
-const ViewBlog = ({ blog, goBack }) => {
+const ViewBlog = () => {
   return (
-    <div className="container mt-4">
+    <div className=" pt-5" style={{ background: "#fff" }}>
       <div className="row">
         <div className="col-md-2"></div>
 
@@ -2200,65 +2355,65 @@ const ViewBlog = ({ blog, goBack }) => {
     </div>
   );
 };
+const Travel = () => {
+  const [activeTab, setActiveTab] = useState("👁️ Preview");
 
-function InfinitySlider() {
+  const renderContent = () => {
+    switch (activeTab) {
+      case "👁️ Preview":
+        return (
+          <div>
+            <Traveler />
+          </div>
+        );
+
+      default:
+        return <div>Select a tab</div>;
+    }
+  };
+
   return (
-    <>
-      <div className="container-fluid mt-4 mb-4">
-        <div className="row align-items-center">
-          <div className="col-md-1 d-none d-lg-block"></div>
-
-          <div className="col-12 col-lg-10">
-            <div
-              style={{
-                overflow: "hidden",
-                whiteSpace: "nowrap",
-                position: "relative",
-              }}
-            >
-              <div
+    <SidebarLayout>
+      <div style={{ display: "flex", height: "100vh" }}>
+        <div
+          style={{
+            width: "130px",
+            backgroundColor: "#f5f5f5",
+            borderRight: "1px solid #ddd",
+          }}
+        >
+          <ul style={{ listStyle: "none", padding: 0 }}>
+            {["👁️ Preview"].map((tab) => (
+              <li
+                key={tab}
+                onClick={() => setActiveTab(tab)}
                 style={{
-                  display: "inline-flex",
-                  animation: "scrollLeft 20s linear infinite",
+                  padding: "5px",
+                  cursor: "pointer",
+                  backgroundColor: activeTab === tab ? "#ddd" : "transparent",
+                  borderRadius: "4px",
+                  marginBottom: "5px",
+                  fontWeight: "bold",
                 }}
               >
-                {[
-                  Company1,
-                  Company2,
-                  Company1,
-                  Company2,
-                  Company1,
-                  Company2,
-                ].map((logo, index) => (
-                  <div key={index} style={{ marginRight: "40px" }}>
-                    <Image
-                      src={logo}
-                      alt={`Company logo ${index + 1}`}
-                      height={50}
-                      style={{ width: "auto" }}
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="col-md-1 d-none d-lg-block"></div>
+                {tab}
+              </li>
+            ))}
+          </ul>
         </div>
 
-        {/* Animation keyframes */}
-        <style jsx>{`
-          @keyframes scrollLeft {
-            0% {
-              transform: translateX(0%);
-            }
-            100% {
-              transform: translateX(-50%);
-            }
-          }
-        `}</style>
+        <div
+          style={{
+            flex: 1,
+            height: "100vh",
+            overflow: "auto",
+            scrollbarWidth: "none",
+          }}
+        >
+          {renderContent()}
+        </div>
       </div>
-      ;
-    </>
+    </SidebarLayout>
   );
-}
+};
+export default Travel;
