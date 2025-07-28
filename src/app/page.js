@@ -7,9 +7,9 @@ export default function Home() {
   return (
     <div>
       {/* <Podcast /> */}
-      {/* <Traveler /> */}
+      <Traveler />
       {/* <LogoSlider /> */}
-      <Automative />
+      {/* <Automative /> */}
     </div>
   );
 }

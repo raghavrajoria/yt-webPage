@@ -341,26 +341,7 @@ const MainPage = ({ setActivePage }) => {
         </div>
       </div>
       {/* Companies */}
-      <div className="container-fluid mt-4 mb-4">
-        <div className="row align-items-center">
-          <div className="col-md-1 d-none d-lg-block"></div>
-
-          <div className="col-12 col-lg-10">
-            {/* Scrolling container */}
-            <div className="scroll-wrapper">
-              <div className="scroll-content">
-                <Image src={Company1} alt="Company 1" />
-                <Image src={Company2} alt="Company 1" />
-
-                <Image src={Company1} alt="Company 1" />
-                <Image src={Company2} alt="Company 1" />
-              </div>
-            </div>
-          </div>
-          <div className="col-md-1 d-none d-lg-block"></div>
-        </div>
-      </div>
-
+      <InfinitySlider />
       {/* storyteller */}
       <div
         className="overflowx-hidden"
@@ -2031,3 +2012,65 @@ const ViewBlog = ({ blog, goBack }) => {
     </div>
   );
 };
+
+function InfinitySlider() {
+  return (
+    <>
+      <div className="container-fluid mt-4 mb-4">
+        <div className="row align-items-center">
+          <div className="col-md-1 d-none d-lg-block"></div>
+
+          <div className="col-12 col-lg-10">
+            <div
+              style={{
+                overflow: "hidden",
+                whiteSpace: "nowrap",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  display: "inline-flex",
+                  animation: "scrollLeft 20s linear infinite",
+                }}
+              >
+                {[
+                  Company1,
+                  Company2,
+                  Company1,
+                  Company2,
+                  Company1,
+                  Company2,
+                ].map((logo, index) => (
+                  <div key={index} style={{ marginRight: "40px" }}>
+                    <Image
+                      src={logo}
+                      alt={`Company logo ${index + 1}`}
+                      height={50}
+                      style={{ width: "auto" }}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="col-md-1 d-none d-lg-block"></div>
+        </div>
+
+        {/* Animation keyframes */}
+        <style jsx>{`
+          @keyframes scrollLeft {
+            0% {
+              transform: translateX(0%);
+            }
+            100% {
+              transform: translateX(-50%);
+            }
+          }
+        `}</style>
+      </div>
+      ;
+    </>
+  );
+}
