@@ -1,0 +1,394 @@
+"use client";
+import React, { useEffect, useRef, useState } from "react";
+
+import Image from "next/image";
+
+import BlogData from "../AutomativeImages/UpNextData.json";
+
+import LatestPostsImg1 from "../AutomativeImages/LatestPostsImg1.jpg";
+import LatestPostsImg2 from "../AutomativeImages/LatestPostsImg2.jpg";
+import LatestPostsImg3 from "../AutomativeImages/LatestPostsImg3.jpg";
+import LatestPostsImg4 from "../AutomativeImages/LatestPostsImg4.jpg";
+
+import { FaArrowRight } from "react-icons/fa";
+import { BsSearch } from "react-icons/bs";
+
+const Blogs = ({ setActivePage, setSelectedBlog }) => {
+  const [blogs, setBlogs] = useState(BlogData.blogs);
+  const [filteredBlogs, setFilteredBlogs] = useState(BlogData.blogs);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const blogsPerPage = 4;
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await fetch(BlogData.blogs);
+  //       const data = await response.json();
+  //       setBlogs(data.blogs);
+  //       setFilteredBlogs(data.blogs);
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
+  useEffect(() => {
+    const filtered = blogs.filter(
+      (blog) =>
+        blog.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        blog.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredBlogs(filtered);
+    setCurrentPage(1);
+  }, [searchTerm, blogs]);
+  const indexOfLastBlog = currentPage * blogsPerPage;
+  const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
+  const currentBlogs = filteredBlogs.slice(indexOfFirstBlog, indexOfLastBlog);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+  };
+
+  const truncateText = (text, maxLength = 200) => {
+    if (text.length <= maxLength) return text;
+    return text.substring(0, maxLength) + "...";
+  };
+  const imageMap = {
+    "LatestPostsImg1.jpg": LatestPostsImg1,
+    "LatestPostsImg2.jpg": LatestPostsImg2,
+    "LatestPostsImg3.jpg": LatestPostsImg3,
+    "LatestPostsImg4.jpg": LatestPostsImg4,
+  };
+
+  return (
+    <div style={{ overflowX: "hidden" }}>
+      <div className="row">
+        {/* Empty column on left */}
+        <div className="col-md-1 d-none d-md-block"> </div>
+
+        {/* Main content column */}
+        <div className="col-md-10 col-12">
+          <h2
+            className="mb-3 text-center"
+            style={{
+              marginTop: "3rem",
+              fontStyle: "bold",
+              fontWeight: "1000",
+              fontSize: "3rem",
+              color: "#252525",
+              lineHeight: "100%",
+            }}
+          >
+            Blogs
+          </h2>
+          <p
+            className="mb-4 text-center"
+            style={{
+              fontWeight: "400",
+              fontSize: "1.6rem",
+              color: "#252525",
+              lineHeight: "100%",
+            }}
+          >
+            These are the places I've visited
+          </p>
+
+          <form onSubmit={handleSearch} className="mb-5">
+            <div className="d-flex justify-content-center mb-5">
+              <div
+                style={{
+                  width: "100%",
+                  maxWidth: "600px",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    position: "absolute",
+                    left: "20px",
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                    color: "#6c757d",
+                    fontSize: "1.2rem",
+                  }}
+                >
+                  <BsSearch />
+                </div>
+
+                <input
+                  type="text"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  style={{
+                    width: "100%",
+                    padding: "12px 50px 12px 50px",
+                    borderRadius: "50px",
+                    border: "1px solid #ced4da",
+                    fontSize: "1rem",
+                    outline: "none",
+                    paddingRight: "120px",
+                  }}
+                />
+
+                <button
+                  onClick={handleSearch}
+                  style={{
+                    position: "absolute",
+                    right: "5px",
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                    background: "#252525",
+                    color: "white",
+                    border: "none",
+                    borderRadius: "50px",
+                    padding: "8px 20px",
+                    fontSize: "0.9rem",
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "5px",
+                  }}
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+          </form>
+
+          {/* Blog Posts */}
+          <div className="blog-posts">
+            {currentBlogs.length > 0 ? (
+              currentBlogs.map((blog) => (
+                <div
+                  key={blog.id}
+                  className="blog-post mb-5 p-0 border-0"
+                  style={{
+                    backgroundColor: "#fff",
+                    borderRadius: "1.25rem",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
+                    overflow: "hidden",
+                  }}
+                >
+                  <div className="row g-0">
+                    {/* Text content - col-md-7 */}
+                    <div className="col-md-7 p-4 d-flex flex-column">
+                      {/* Author and Date row */}
+                      <div className="d-flex justify-content-between align-items-center mb-2">
+                        <span className="text-muted small">
+                          By {blog.author}
+                        </span>
+                        <span className="text-muted small">{blog.date}</span>
+                      </div>
+                      {/* Title with emoji */}
+                      <h3
+                        className="mb-3"
+                        style={{
+                          color: "#252525",
+                          fontWeight: 600,
+                          fontSize: "1.6rem",
+                          lineHeight: 1.2,
+                        }}
+                      >
+                        {blog.title}
+                        {blog.emoji && (
+                          <span style={{ fontSize: "1.2rem", marginLeft: 8 }}>
+                            {blog.emoji}
+                          </span>
+                        )}
+                      </h3>
+                      <p
+                        className="mb-4"
+                        style={{
+                          lineHeight: "1.6",
+                          color: "#222",
+                          display: "-webkit-box",
+                          WebkitLineClamp: 3,
+                          WebkitBoxOrient: "vertical",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                        }}
+                      >
+                        {truncateText(blog.excerpt)}
+                      </p>
+                      <div className="mt-auto">
+                        <button
+                          onClick={() => {
+                            setSelectedBlog(blog);
+                            setActivePage("view");
+                          }}
+                          className="btn"
+                          style={{
+                            border: "2px solid #252525",
+                            color: "#252525",
+                            borderRadius: "2rem",
+                            padding: "0.5rem 1.25rem",
+                            fontWeight: 500,
+                            background: "transparent",
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: "0.5rem",
+                          }}
+                        >
+                          Continue Reading
+                          <FaArrowRight style={{ fontSize: "1rem" }} />
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Image - col-md-5 */}
+                    <div className="col-md-5">
+                      <div
+                        className="d-flex align-items-center justify-content-center p-3"
+                        style={{
+                          flex: 1,
+                          minWidth: 0,
+                          background: "#f8f9fa",
+                          borderTopRightRadius: "1.25rem",
+                          borderBottomRightRadius: "1.25rem",
+                          overflow: "hidden",
+                          height: "240px",
+                          alignSelf: "center",
+                          margin: "1rem",
+                        }}
+                      >
+                        {blog.image && (
+                          <Image
+                            src={imageMap[blog.image]}
+                            alt={blog.title}
+                            className="img-fluid h-100 w-100"
+                            style={{
+                              objectFit: "cover",
+                              borderRadius: "0.75rem",
+                            }}
+                          />
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div className="text-center py-5">
+                <p>No blogs found matching your search.</p>
+              </div>
+            )}
+          </div>
+
+          {/* Pagination */}
+          {filteredBlogs.length > blogsPerPage && (
+            <nav aria-label="Blog pagination">
+              <ul
+                className="pagination justify-content-center"
+                style={{ gap: "0.5rem" }}
+              >
+                {/* Previous Button (as <) */}
+                <li
+                  className={`page-item ${currentPage === 1 ? "disabled" : ""}`}
+                >
+                  <button
+                    className="page-link"
+                    onClick={() => paginate(currentPage - 1)}
+                    style={{
+                      border: "none",
+                      background: "transparent",
+                      color: currentPage === 1 ? "#ccc" : "#252525",
+                      fontWeight: "bold",
+                      fontSize: "1.2rem",
+                    }}
+                  >
+                    &lt;
+                  </button>
+                </li>
+
+                {/* Page Numbers */}
+                {Array.from({
+                  length: Math.min(
+                    4,
+                    Math.ceil(filteredBlogs.length / blogsPerPage)
+                  ),
+                }).map((_, index) => (
+                  <li
+                    key={index}
+                    className={`page-item ${
+                      currentPage === index + 1 ? "active" : ""
+                    }`}
+                  >
+                    <button
+                      className="page-link"
+                      onClick={() => paginate(index + 1)}
+                      style={{
+                        border: "none",
+                        background:
+                          currentPage === index + 1 ? "#252525" : "transparent",
+                        color: currentPage === index + 1 ? "white" : "#252525",
+                        borderRadius: "50%",
+                        width: "36px",
+                        height: "36px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      {index + 1}
+                    </button>
+                  </li>
+                ))}
+
+                {/* Ellipsis (...) if more pages exist */}
+                {Math.ceil(filteredBlogs.length / blogsPerPage) > 4 && (
+                  <li className="page-item disabled">
+                    <span
+                      className="page-link"
+                      style={{
+                        border: "none",
+                        background: "transparent",
+                        padding: "0 0.5rem",
+                      }}
+                    >
+                      ...
+                    </span>
+                  </li>
+                )}
+
+                {/* Next Button (as >) */}
+                <li
+                  className={`page-item ${
+                    currentPage ===
+                    Math.ceil(filteredBlogs.length / blogsPerPage)
+                      ? "disabled"
+                      : ""
+                  }`}
+                >
+                  <button
+                    className="page-link"
+                    onClick={() => paginate(currentPage + 1)}
+                    style={{
+                      border: "none",
+                      background: "transparent",
+                      color:
+                        currentPage ===
+                        Math.ceil(filteredBlogs.length / blogsPerPage)
+                          ? "#ccc"
+                          : "#252525",
+                      fontWeight: "bold",
+                      fontSize: "1.2rem",
+                    }}
+                  >
+                    &gt;
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          )}
+        </div>
+
+        <div className="col-md-1 d-none d-md-block"></div>
+      </div>
+    </div>
+  );
+};
+
+export default Blogs;

@@ -86,9 +86,6 @@ const Traveler = () => {
 
   return (
     <>
-      {/* Show TravelNav on all pages except main */}
-      {activePage !== "main" && <TravelNav setActivePage={setActivePage} />}
-
       {/* Main landing page */}
       {activePage === "main" && <MainPage setActivePage={setActivePage} />}
 
@@ -121,7 +118,6 @@ const TravelNav = () => {
   }, []);
   return (
     <div className="container-fluid px-0">
-      {/* navbar */}
       <div className="row g-0">
         <div
           className="col-md-1 d-none d-lg-block"
@@ -134,7 +130,7 @@ const TravelNav = () => {
             style={{ backgroundColor: "#008CA7" }}
           >
             <div className="container-fluid">
-              <Image src={IshwarLogo} alt="" />
+              <img src="/path/to/logo.png" alt="Ishwar Logo" />
               <a className="navbar-brand fw-bold">Ishwaar</a>
 
               <button
@@ -152,24 +148,36 @@ const TravelNav = () => {
               >
                 <ul className="navbar-nav align-items-center">
                   <li className="nav-item">
-                    <Link href="/videos" className="nav-link text-white">
+                    <button
+                      className="nav-link btn text-white"
+                      onClick={() => setActivePage("videos")}
+                    >
                       VIDEOS
-                    </Link>
+                    </button>
                   </li>
                   <li className="nav-item">
-                    <Link href="/blogs" className="nav-link text-white">
+                    <button
+                      className="nav-link btn text-white"
+                      onClick={() => setActivePage("blogs")}
+                    >
                       BLOGS
-                    </Link>
+                    </button>
                   </li>
                   <li className="nav-item">
-                    <Link href="/blogs" className="nav-link text-white">
+                    <button
+                      className="nav-link btn text-white"
+                      onClick={() => setActivePage("destination")}
+                    >
                       DESTINATION
-                    </Link>
+                    </button>
                   </li>
                   <li className="nav-item">
-                    <Link href="/main" className="nav-link text-white">
+                    <button
+                      className="nav-link btn text-white"
+                      onClick={() => setActivePage("main")}
+                    >
                       ABOUT
-                    </Link>
+                    </button>
                   </li>
                 </ul>
               </div>
