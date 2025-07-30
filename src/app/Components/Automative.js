@@ -10,8 +10,6 @@ import ViewBlog from "../Pages/ViewBlog";
 import News from "../Pages/News";
 import Aboutus from "../Pages/Aboutus";
 
-import BlogData from "../AutomativeImages/UpNextData.json";
-
 const Automative = () => {
   const [activeSection, setActiveSection] = useState("main");
 
