@@ -1,3 +1,4 @@
+import Astrology from "./Astrology/Astrology";
 import Automative from "./Components/Automative";
 import Gaming from "./Components/Gaming";
 import LogoSlider from "./Components/LogoSlider";
@@ -11,7 +12,8 @@ export default function Home() {
       {/* <Traveler /> */}
       {/* <LogoSlider /> */}
       {/* <Automative /> */}
-      <Gaming />
+      {/* <Gaming /> */}
+      <Astrology />
     </div>
   );
 }
