@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Form, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button, Card } from "react-bootstrap";
 
 import bgImg from "../GamingImages/GamingBg.jpg";
 import IshwarLogo from "../GamingImages/IshwarLogo.png";
@@ -251,9 +251,9 @@ const FirstPage = ({ onStart }) => {
       <IshwaarGaming />
       {/* lastest video div */}
       <div style={{ backgroundColor: "black", color: "white" }}>
-        <div className="container py-5">
-          <div className="row align-items-center mb-4">
-            <div className="col-md-8">
+        <Container className="py-5">
+          <Row className="align-items-center mb-4">
+            <Col md={8}>
               <h3
                 style={{
                   fontFamily: "'Akira Expanded', sans-serif",
@@ -265,15 +265,14 @@ const FirstPage = ({ onStart }) => {
               >
                 LATEST VIDEOS AND STREAMS
               </h3>
-            </div>
-            <div className="col-md-4 text-md-end text-start mt-3 mt-md-0">
-              <button
+            </Col>
+            <Col md={4} className="text-md-end text-start mt-3 mt-md-0">
+              <Button
                 className="btn"
                 onClick={onStart}
                 style={{
                   backgroundColor: "#fff",
                   outline: "none",
-                  textDecoration: "none",
                   color: "#16215C",
                   padding: "13px 45px",
                   clipPath:
@@ -284,44 +283,63 @@ const FirstPage = ({ onStart }) => {
                 }}
               >
                 <FaArrowRight /> See All
-              </button>
-            </div>
-          </div>
+              </Button>
+            </Col>
+          </Row>
 
-          {/* Grid layout */}
-          <div className="row g-4">
-            {/* Left column with 2 stacked videos */}
-            <div className="col-md-5 d-flex flex-column gap-4">
-              {[LatestVid1, LatestVid2].map((vid, idx) => (
-                <div className="video-card position-relative" key={idx}>
-                  <Image
-                    src={vid}
-                    alt={`video-${idx + 1}`}
-                    className="img-fluid"
-                    style={{ borderRadius: "8px", width: "100%" }}
-                  />
-                  <div
-                    className="live-badge"
-                    style={{
-                      position: "absolute",
-                      top: "10px",
-                      right: "10px",
-                      fontSize: "1.75rem",
-                    }}
-                  >
-                    <FaYoutube style={{ color: "red" }} />
-                  </div>
-                  <p style={{ fontWeight: "bold", marginTop: "0.5rem" }}>
-                    {idx === 0
-                      ? "[HINDI] realme BMPS 2025 | Group A, B, C & D | Semi Finals Week 1 - Day 3"
-                      : "🔴 LIVE - GTA V ONLINE GRIND STREAM #gta5 #gtaonline #gaming #gtavonlinegameplaylive #gameplay #viral"}
-                  </p>
+          {/* Video Grid */}
+          <Row className="g-4">
+            {/* Left Column */}
+            <Col md={5}>
+              <div className="mb-4 position-relative">
+                <Image
+                  src={LatestVid1}
+                  alt="video-1"
+                  className="img-fluid"
+                  style={{ borderRadius: "8px", width: "100%" }}
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "10px",
+                    right: "10px",
+                    fontSize: "1.75rem",
+                  }}
+                >
+                  <FaYoutube style={{ color: "red" }} />
                 </div>
-              ))}
-            </div>
+                <p style={{ fontWeight: "bold", marginTop: "0.5rem" }}>
+                  [HINDI] realme BMPS 2025 | Group A, B, C & D | Semi Finals
+                  Week 1 - Day 3
+                </p>
+              </div>
 
-            {/* Right column with 1 large video */}
-            <div className="col-md-7">
+              <div className="position-relative">
+                <Image
+                  src={LatestVid2}
+                  alt="video-2"
+                  className="img-fluid"
+                  style={{ borderRadius: "8px", width: "100%" }}
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "10px",
+                    right: "10px",
+                    fontSize: "1.75rem",
+                  }}
+                >
+                  <FaYoutube style={{ color: "red" }} />
+                </div>
+                <p style={{ fontWeight: "bold", marginTop: "0.5rem" }}>
+                  🔴 LIVE - GTA V ONLINE GRIND STREAM #gta5 #gtaonline #gaming
+                  #gtavonlinegameplaylive #gameplay #viral
+                </p>
+              </div>
+            </Col>
+
+            {/* Right Column */}
+            <Col md={7}>
               <div className="video-card position-relative">
                 <Image
                   src={LatestVid3}
@@ -345,15 +363,14 @@ const FirstPage = ({ onStart }) => {
                   <FaYoutube style={{ color: "red" }} />
                 </div>
                 <p style={{ fontWeight: "bold", marginTop: "0.5rem" }}>
-                  "LIVE🔴INSANE COD Mobile Clutch Moments & Pro Plays #shorts
-                  #codm #gaming #live #shortsviral"
+                  LIVE🔴 INSANE COD Mobile Clutch Moments & Pro Plays #shorts
+                  #codm #gaming #live #shortsviral
                 </p>
               </div>
-            </div>
-          </div>
-        </div>
+            </Col>
+          </Row>
+        </Container>
       </div>
-
       {/* warror image */}
       <div className="ishwaar-intro-section">
         <div className="ishwaar-skew-bg" />
@@ -464,116 +481,111 @@ const FirstPage = ({ onStart }) => {
 };
 
 export const TrendingPage = () => {
-  return (
-    <div className="mb-2">
-      <div
-        className="row g-0 position-relative"
-        style={{
-          backgroundImage: `url(${TrendingGameBg.src})`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-          minheight: "100vh",
-          overflow: "hidden",
-        }}
-      >
-        {/* Overlay */}
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: "rgba(0,0,0,0.5)",
-            zIndex: 1,
-          }}
-        ></div>
+  const games = [
+    { src: TrendingGame1, name: "GTA V" },
+    { src: TrendingGame2, name: "ASSASSIN'S CREED" },
+    { src: TrendingGame4, name: "PUBG" },
+    { src: TrendingGame3, name: "FORTNITE" },
+  ];
 
-        <div className="container position-relative" style={{ zIndex: 2 }}>
-          {/* Title */}
-          <div className="row justify-content-center mt-2">
-            <div className="col-md-1 d-none d-md-block"></div>
-            <div className="col-12 col-md-10 text-center">
-              <h2
+  return (
+    <div
+      className="trending-page"
+      style={{
+        backgroundImage: `url(${TrendingGameBg.src})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        position: "relative",
+        minHeight: "100vh",
+        overflow: "hidden",
+      }}
+    >
+      {/* Overlay */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
+          zIndex: 1,
+        }}
+      ></div>
+
+      {/* Foreground content */}
+      <Container className="py-5 position-relative" style={{ zIndex: 2 }}>
+        {/* Title */}
+        <Row className="justify-content-center mb-5">
+          <Col xs={12} md={10} className="text-center">
+            <h2
+              style={{
+                fontFamily: "'Akira Expanded', sans-serif",
+                fontWeight: 800,
+                fontSize: "2rem",
+                lineHeight: "1.88",
+                textTransform: "uppercase",
+                color: "white",
+              }}
+            >
+              CURRENTLY TRENDING GAMES
+            </h2>
+          </Col>
+        </Row>
+
+        {/* Game Cards */}
+        <Row className="gx-4 gy-4 justify-content-center">
+          {games.map((game, idx) => (
+            <Col key={idx} xs={6} md={4} lg={3}>
+              <Card
+                className="h-100 text-white"
                 style={{
-                  fontFamily: "'Akira Expanded', sans-serif",
-                  fontWeight: 800,
-                  fontSize: "2rem",
-                  lineHeight: "1.88",
-                  textTransform: "uppercase",
-                  color: "white",
-                  marginBottom: "60px",
+                  backgroundColor: "transparent",
+                  border: "none",
                 }}
               >
-                CURRENTLY TRENDING GAMES
-              </h2>
-            </div>
-            <div className="col-md-1 d-none d-md-block"></div>
-          </div>
-
-          {/* Games Grid */}
-          <div className="row justify-content-center">
-            <div className="col-md-1 d-none d-md-block"></div>
-
-            <div className="col-12 col-md-10">
-              <div
-                className="row gx-4 gy-4 justify-content-center"
-                style={{ paddingBottom: "6rem" }} // 👈 padding added here
-              >
-                {[
-                  { src: TrendingGame1, name: "GTA V" },
-                  { src: TrendingGame2, name: "ASSASSIN'S CREED" },
-                  { src: TrendingGame4, name: "PUBG" },
-                  { src: TrendingGame3, name: "FORTNITE" },
-                ].map((game, index) => (
-                  <div
-                    key={index}
-                    className="col-lg-3 col-md-4 col-6 text-center"
+                <Image
+                  src={game.src}
+                  alt={game.name}
+                  className="img-fluid rounded shadow"
+                  style={{
+                    width: "100%",
+                    aspectRatio: "3 / 4",
+                    objectFit: "cover",
+                    borderRadius: "0.75rem",
+                  }}
+                />
+                <Card.Body className="text-center px-2">
+                  <Card.Title
+                    as="h5"
+                    style={{
+                      fontFamily: "'Akira Expanded', sans-serif",
+                      fontSize: "1rem",
+                      textTransform: "uppercase",
+                      wordBreak: "break-word",
+                      color: "white",
+                      marginTop: "10px",
+                    }}
                   >
-                    <Image
-                      src={game.src}
-                      alt={game.name}
-                      className="img-fluid rounded shadow"
-                      style={{
-                        width: "100%",
-                        height: "auto",
-                        aspectRatio: "3 / 4",
-                        objectFit: "cover",
-                      }}
-                    />
-                    <div
-                      style={{
-                        padding: "15px",
-                        color: "white",
-                        fontFamily: "'Akira Expanded', sans-serif",
-                        fontSize: "1rem",
-                        textTransform: "uppercase",
-                        wordBreak: "break-word",
-                      }}
-                    >
-                      {game.name}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="col-md-1 d-none d-md-block"></div>
-          </div>
-        </div>
-      </div>
+                    {game.name}
+                  </Card.Title>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </Container>
     </div>
   );
 };
-
 export const Trophydiv = () => {
   return (
     <>
       <div className="container" style={{}}>
         <div className="row justify-content-center mt-5">
           {/* Left Column: Welcome + Trophies */}
-          <div className="col-lg-4 col-md-6 col-12 mb-4 p-0">
+          <div className="col-lg-4 col-md-6 col-12 mb-4 ">
             <div
               className="p-4 text-white"
               style={{
@@ -644,10 +656,10 @@ export const Trophydiv = () => {
 
 export const IshwaarGaming = () => {
   return (
-    <div className=" position-relative text-center text-white overflow-hidden">
-      {/* Background Titles */}
+    <div className="position-relative text-center text-white overflow-hidden mb-5">
+      {/* Layered Titles */}
       <div
-        className="ishwaar-titles position-absolute top-0 start-50 translate-middle-x w-100"
+        className="position-absolute top-0 start-50 translate-middle-x w-100 ishwaar-titles"
         style={{ zIndex: 1 }}
       >
         <h1 className="ishwaar-title filled">ISHWAAR GAMING</h1>
@@ -656,38 +668,60 @@ export const IshwaarGaming = () => {
         <h1 className="ishwaar-title outlined">ISHWAAR GAMING</h1>
       </div>
 
-      {/* Characters (on top of titles) */}
-      <div className="container position-relative" style={{ zIndex: 2 }}>
-        <div className="row justify-content-center g-4 py-5">
-          <div className="col-md-1 d-none d-md-block"></div>
+      {/* Foreground Content */}
+      <Container className="position-relative py-5" style={{ zIndex: 2 }}>
+        {/* Subtitle and Description */}
 
-          {[GamingPic1, GamingPic2, GamingPic3].map((pic, i) => (
-            <div key={i} className="col-6 col-md-3 text-center">
-              <Image
-                src={pic}
-                alt={`game-${i}`}
-                className="img-fluid"
-                style={{
-                  borderRadius: "12px",
-                  maxHeight: "22rem",
-                  objectFit: "contain",
-                  width: "100%",
-                }}
-              />
-            </div>
-          ))}
+        {/* Game Characters */}
+        <Row className="justify-content-center g-4">
+          <Col xs={6} md={3} className="text-center">
+            <Image
+              src={GamingPic1}
+              alt="game-1"
+              className="img-fluid"
+              style={{
+                borderRadius: "12px",
+                maxHeight: "22rem",
+                objectFit: "contain",
+                width: "100%",
+              }}
+            />
+          </Col>
+          <Col xs={6} md={3} className="text-center">
+            <Image
+              src={GamingPic2}
+              alt="game-2"
+              className="img-fluid"
+              style={{
+                borderRadius: "12px",
+                maxHeight: "22rem",
+                objectFit: "contain",
+                width: "100%",
+              }}
+            />
+          </Col>
+          <Col xs={6} md={3} className="text-center">
+            <Image
+              src={GamingPic3}
+              alt="game-3"
+              className="img-fluid"
+              style={{
+                borderRadius: "12px",
+                maxHeight: "22rem",
+                objectFit: "contain",
+                width: "100%",
+              }}
+            />
+          </Col>
+        </Row>
+      </Container>
 
-          <div className="col-md-1 d-none d-md-block"></div>
-        </div>
-      </div>
-
-      {/* Styles */}
+      {/* Scoped CSS */}
       <style jsx>{`
         .ishwaar-titles {
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 0px;
         }
 
         .ishwaar-title {
@@ -708,9 +742,28 @@ export const IshwaarGaming = () => {
           -webkit-text-stroke: 2px white;
         }
 
+        .subtitle {
+          font-size: 1.5rem;
+          font-weight: 600;
+          color: #ffffffdd;
+        }
+
+        .description {
+          font-size: 1rem;
+          color: #ffffffbb;
+        }
+
         @media (max-width: 768px) {
           .ishwaar-title {
             font-size: 48px;
+          }
+
+          .subtitle {
+            font-size: 1.1rem;
+          }
+
+          .description {
+            font-size: 0.95rem;
           }
         }
       `}</style>
@@ -720,40 +773,79 @@ export const IshwaarGaming = () => {
 
 export const GifSection = () => {
   return (
-    <div className="container">
-      <div className="row mb-4">
+    <Container>
+      <Row className="mb-4">
         {/* Row 1 */}
-        <div className="col-6 col-md-4 col-lg-3 mb-3 d-flex p-0 justify-content-center">
+        <Col
+          xs={6}
+          md={4}
+          lg={3}
+          className="mb-3 d-flex justify-content-center "
+        >
           <Image src={Gif1} alt="gif1" width={300} height={200} />
-        </div>
-        <div className="col-6 col-md-4 col-lg-3  d-flex p-0 justify-content-center">
-          <Image src={Gif2} alt="gif2" width={180} height={200} />
-        </div>
-        <div className="col-6 col-md-4 col-lg-3  d-flex p-0 justify-content-center">
+        </Col>
+        <Col
+          xs={6}
+          md={4}
+          lg={3}
+          className="mb-3 d-flex justify-content-center "
+        >
+          <Image src={Gif2} alt="gif2" width={200} height={200} />
+        </Col>
+        <Col
+          xs={6}
+          md={4}
+          lg={3}
+          className="mb-3 d-flex justify-content-center "
+        >
           <Image src={Gif3} alt="gif3" width={300} height={180} />
-        </div>
-        <div className="col-6 col-md-4 col-lg-3  d-flex p-0 justify-content-center">
+        </Col>
+        <Col
+          xs={6}
+          md={4}
+          lg={3}
+          className="mb-3 d-flex justify-content-center "
+        >
           <Image src={Gif4} alt="gif4" width={180} height={180} />
-        </div>
+        </Col>
 
         {/* Row 2 */}
-        <div className="col-6 col-md-4 col-lg-3  d-flex p-0 justify-content-center">
+        <Col
+          xs={6}
+          md={4}
+          lg={3}
+          className="mb-3 d-flex justify-content-center "
+        >
           <Image src={Gif5} alt="gif5" width={180} height={180} />
-        </div>
-        <div className="col-6 col-md-4 col-lg-3  d-flex p-0 justify-content-center">
+        </Col>
+        <Col
+          xs={6}
+          md={4}
+          lg={3}
+          className="mb-3 d-flex justify-content-center "
+        >
           <Image src={Gif6} alt="gif6" width={300} height={180} />
-        </div>
-        <div className="col-6 col-md-4 col-lg-3  d-flex p-0 justify-content-center">
+        </Col>
+        <Col
+          xs={6}
+          md={4}
+          lg={3}
+          className="mb-3 d-flex justify-content-center "
+        >
           <Image src={Gif7} alt="gif7" width={210} height={180} />
-        </div>
-        <div className="col-6 col-md-4 col-lg-3  d-flex p-0 justify-content-center">
+        </Col>
+        <Col
+          xs={6}
+          md={4}
+          lg={3}
+          className="mb-3 d-flex justify-content-center "
+        >
           <Image src={Gif8} alt="gif8" width={300} height={180} />
-        </div>
-      </div>
-    </div>
+        </Col>
+      </Row>
+    </Container>
   );
 };
-
 const Footer = () => {
   return (
     <footer
