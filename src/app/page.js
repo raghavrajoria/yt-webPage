@@ -12,8 +12,8 @@ export default function Home() {
       {/* <Traveler /> */}
       {/* <LogoSlider /> */}
       {/* <Automative /> */}
-      {/* <Gaming /> */}
-      <Astrology />
+      <Gaming />
+      {/* <Astrology /> */}
     </div>
   );
 }

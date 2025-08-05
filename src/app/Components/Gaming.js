@@ -250,14 +250,8 @@ const FirstPage = ({ onStart }) => {
       {/* Iswaar Gaming div */}
       <IshwaarGaming />
       {/* lastest video div */}
-      <div
-        className="row py-5"
-        style={{ backgroundColor: "black", color: "white" }}
-      >
-        <div className="col-md-1"></div>
-
-        <div className="col-md-10">
-          {/* Section Header */}
+      <div style={{ backgroundColor: "black", color: "white" }}>
+        <div className="container py-5">
           <div className="row align-items-center mb-4">
             <div className="col-md-8">
               <h3
@@ -272,7 +266,7 @@ const FirstPage = ({ onStart }) => {
                 LATEST VIDEOS AND STREAMS
               </h3>
             </div>
-            <div className="col-md-4 text-end">
+            <div className="col-md-4 text-md-end text-start mt-3 mt-md-0">
               <button
                 className="btn"
                 onClick={onStart}
@@ -297,14 +291,14 @@ const FirstPage = ({ onStart }) => {
           {/* Grid layout */}
           <div className="row g-4">
             {/* Left column with 2 stacked videos */}
-            <div className="col-md-5 d-flex flex-column gap-4 h-50">
+            <div className="col-md-5 d-flex flex-column gap-4">
               {[LatestVid1, LatestVid2].map((vid, idx) => (
                 <div className="video-card position-relative" key={idx}>
                   <Image
                     src={vid}
                     alt={`video-${idx + 1}`}
                     className="img-fluid"
-                    style={{ borderRadius: "8px" }}
+                    style={{ borderRadius: "8px", width: "100%" }}
                   />
                   <div
                     className="live-badge"
@@ -336,14 +330,15 @@ const FirstPage = ({ onStart }) => {
                   style={{
                     borderRadius: "8px",
                     objectFit: "cover",
-                    height: "80vh",
                     width: "100%",
+                    height: "100vh",
                   }}
                 />
                 <div
                   style={{
                     position: "absolute",
                     top: "10px",
+                    right: "10px",
                     fontSize: "1.75rem",
                   }}
                 >
@@ -357,9 +352,8 @@ const FirstPage = ({ onStart }) => {
             </div>
           </div>
         </div>
-
-        <div className="col-md-1"></div>
       </div>
+
       {/* warror image */}
       <div className="ishwaar-intro-section">
         <div className="ishwaar-skew-bg" />
@@ -479,7 +473,7 @@ export const TrendingPage = () => {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
-          height: "100vh",
+          minheight: "100vh",
           overflow: "hidden",
         }}
       >
@@ -523,7 +517,10 @@ export const TrendingPage = () => {
             <div className="col-md-1 d-none d-md-block"></div>
 
             <div className="col-12 col-md-10">
-              <div className="row gx-4 gy-4 justify-content-center">
+              <div
+                className="row gx-4 gy-4 justify-content-center"
+                style={{ paddingBottom: "6rem" }} // 👈 padding added here
+              >
                 {[
                   { src: TrendingGame1, name: "GTA V" },
                   { src: TrendingGame2, name: "ASSASSIN'S CREED" },
@@ -573,7 +570,7 @@ export const TrendingPage = () => {
 export const Trophydiv = () => {
   return (
     <>
-      <div className="container">
+      <div className="container" style={{}}>
         <div className="row justify-content-center mt-5">
           {/* Left Column: Welcome + Trophies */}
           <div className="col-lg-4 col-md-6 col-12 mb-4 p-0">

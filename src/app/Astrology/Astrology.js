@@ -29,22 +29,24 @@ import AstroFooter from "./AstroFooter";
 import AstroAboutus from "./AstroAboutus";
 import AstroVideo from "./AstroVideo";
 import AstroBlog from "./AstroBlog";
+import AstroArticle from "./AstroArticle";
 
 const Astrology = () => {
   return (
     <div>
       <AstrologyNav />
-      {/* <HelpHeal />
+      <HelpHeal />
       <SeenDiv />
       <Remedies />
       <TestimonialSlider />
       <Journey />
-      <CardSlider /> */}
+      <CardSlider />
       {/* <AstroService /> */}
       {/* <AstroAboutus /> */}
 
       {/* <AstroVideo /> */}
-      <AstroBlog />
+      {/* <AstroBlog /> */}
+      <AstroArticle />
       <AstroFooter />
     </div>
   );
@@ -149,7 +151,7 @@ export const AstrologyNav = () => {
 export const HelpHeal = () => {
   return (
     <div style={{ overflowX: "hidden" }}>
-      <div className="row" style={{ backgroundColor: "black" }}>
+      <div className="row" style={{ backgroundColor: "white" }}>
         <div className="col-md-1"></div>
         <div className="col-md-10">
           <div className="row">
